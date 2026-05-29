@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Reinerde — Our Team</title>
+<meta name="description" content="">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/owl.theme.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+
+/* ================================================================
+   REVEAL ANIMATIONS
+================================================================ */
+/* Base state — hidden */
+.reveal-up,
+.reveal-down,
+.reveal-left,
+.reveal-right,
+.reveal-zoom,
+.reveal-flip {
+  opacity: 0;
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.reveal-up    { transform: translateY(60px); }
+.reveal-down  { transform: translateY(-60px); }
+.reveal-left  { transform: translateX(-70px); }
+.reveal-right { transform: translateX(70px); }
+.reveal-zoom  { transform: scale(0.75); }
+.reveal-flip  { transform: rotateX(40deg) translateY(40px); transform-origin: top center; }
+
+/* Active state — visible */
+.reveal-up.active,
+.reveal-down.active,
+.reveal-left.active,
+.reveal-right.active,
+.reveal-zoom.active,
+.reveal-flip.active {
+  opacity: 1;
+  transform: none;
+}
+
+/* Staggered delay helpers */
+.delay-1 { transition-delay: 0.10s; }
+.delay-2 { transition-delay: 0.20s; }
+.delay-3 { transition-delay: 0.30s; }
+.delay-4 { transition-delay: 0.40s; }
+.delay-5 { transition-delay: 0.50s; }
+.delay-6 { transition-delay: 0.60s; }
+
+/* Legacy .reveal kept for compatibility */
+.reveal { opacity:0; transform:translateY(60px); transition:all 0.8s ease; }
+.reveal.active { opacity:1; transform:translateY(0); }
+
+/* ================================================================
+   ORIGINAL STYLES (unchanged)
+================================================================ */
+.go-top {
+  position:fixed; bottom:30px; right:30px; width:50px; height:50px;
+  background:linear-gradient(135deg,#eaf2f5,#012b5e); color:white;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:50%; font-size:22px; text-decoration:none;
+  box-shadow:0 10px 25px rgba(30,10,10,0.4); transition:all 0.3s ease;
+  opacity:0; visibility:hidden;
+}
+.go-top.active { opacity:1; visibility:visible; }
+.go-top:hover { transform:translateY(-5px); box-shadow:0 15px 35px rgba(76,76,77,0.7); }
+.go-top i { transition:0.3s ease; }
+.go-top:hover i { transform:translateY(-3px); }
+
+.chatbot-toggle {
+  position:fixed; bottom:95px; right:20px; width:65px; height:65px;
+  background:linear-gradient(135deg,#00c6ff,#0072ff); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,114,255,0.5); transition:0.3s ease;
+}
+.chatbot-toggle:hover { transform:scale(1.1); }
+.chatbot-toggle img { width:35px; height:35px; }
+
+.chatbot-box {
+  position:fixed; bottom:110px; right:25px; width:320px; background:white;
+  border-radius:15px; box-shadow:0 20px 50px rgba(0,114,255,0.3);
+  overflow:hidden; display:none; animation:slideUp 0.4s ease;
+}
+.chat-header {
+  background:linear-gradient(135deg,#00c6ff,#0072ff); color:white;
+  padding:12px; font-weight:bold; display:flex;
+  justify-content:space-between; align-items:center;
+}
+.chat-body { padding:15px; max-height:300px; overflow-y:auto; }
+.bot-message { background:#e6f4ff; padding:8px 12px; border-radius:10px; margin-bottom:10px; font-size:14px; }
+.options button {
+  width:100%; margin:5px 0; padding:8px; border:none; border-radius:8px;
+  background:#0072ff; color:white; cursor:pointer; transition:0.3s;
+}
+.options button:hover { background:#0056cc; }
+
+@keyframes slideUp { from{transform:translateY(30px);opacity:0;} to{transform:translateY(0);opacity:1;} }
+
+.admin-btn {
+  background:linear-gradient(45deg,black,rgb(34,34,34)); color:white;
+  border:none; padding:8px 15px; border-radius:20px; cursor:pointer; transition:0.3s;
+}
+.admin-btn:hover { transform:translateY(-2px); }
+
+.admin-modal {
+  display:none; position:fixed; z-index:9999; left:0; top:0;
+  width:100%; height:100%; background:rgba(0,0,0,0.6);
+}
+.admin-content {
+  background:white; width:300px; margin:10% auto; padding:30px;
+  border-radius:10px; text-align:center; animation:slideUp 0.4s ease;
+}
+.admin-content input { width:100%; padding:10px; margin:10px 0; border:1px solid #ddd; border-radius:5px; }
+.close-btn { float:right; cursor:pointer; font-size:20px; }
+.admin-content button { background:#0b5ed7; color:white; padding:10px 20px; border:none; border-radius:20px; cursor:pointer; }
+
+.logoname {
+  height:auto; max-height:130px; width:auto; margin-left:-200px; margin-top:-35px;
+  transition:transform 0.5s ease,filter 0.3s;
+  filter:drop-shadow(0 4px 6px #061a28); animation:floatLogo 4s infinite ease-in-out;
+}
+@keyframes floatLogo {
+  0%{transform:translateY(0px) scale(1);}
+  50%{transform:translateY(-4px) scale(1.02);filter:drop-shadow(0 8px 12px #f9c74f80);}
+  100%{transform:translateY(0px) scale(1);}
+}
+.logoname:hover { animation:none; transform:scale(1.08) rotate(-1deg); filter:drop-shadow(0 0 10px #f9c74f); }
+
+.tagline-container { width:100px; overflow:hidden; margin-top:-60px; margin-left:-120px; }
+.tagline-text {
+  display:inline-block; white-space:nowrap; font-size:14px; font-weight:500;
+  color:#efebeb; animation:scrollText 8s linear infinite;
+}
+@keyframes scrollText { 0%{transform:translateX(100%);} 100%{transform:translateX(-100%);} }
+
+#tsparticles {
+  position: fixed; inset: 0; z-index: -10;
+  pointer-events: none; width: 100%; height: 100%;
+}
+
+.main-footer {
+  background:linear-gradient(900deg,rgba(110,152,178,0.88),rgba(115,211,243,0.88),rgba(110,152,178,0.88));
+  color:rgb(7,7,7); padding:60px 0 20px; animation:fadeUp 1.2s ease;
+}
+.footer-container { width:90%; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:40px; }
+.footer-col h3 { margin-bottom:15px; font-size:22px; border-bottom:2px solid #66ccff; display:inline-block; padding-bottom:5px; }
+.footer-col p { font-size:14px; line-height:1.7; opacity:0.9; }
+.footer-col ul { list-style:none; padding:0; }
+.footer-col ul li { margin:10px 0; }
+.footer-col ul li a { color:rgb(14,14,14); text-decoration:none; transition:0.3s; }
+.footer-col ul li a:hover { color:#66ccff; padding-left:8px; }
+.social-icons a { display:inline-block; margin-right:12px; font-size:20px; color:rgb(8,8,8); transition:0.4s; }
+.social-icons a:hover { color:#66ccff; transform:translateY(-5px) scale(1.2); }
+.footer-bottom { text-align:center; margin-top:40px; border-top:1px solid rgba(255,255,255,0.3); padding-top:15px; font-size:14px; }
+.home_sci a {
+  display:inline-flex; justify-content:center; align-items:center;
+  width:45px; height:45px; background:transparent; border:2px solid rgb(3,3,3);
+  font-size:20px; color:rgb(6,6,6); border-radius:50%; text-decoration:none;
+  margin:30px 15px 30px 0; transition:.5s ease; opacity:0;
+  animation:slideLeft .5s ease forwards; animation-delay:calc(.1s * var(--i));
+}
+.home_sci a:hover { background-color:rgb(246,246,246); color:black; box-shadow:0 0 20px rgb(6,6,6); }
+@keyframes fadeUp { from{transform:translateY(60px);opacity:0;} to{transform:translateY(0);opacity:1;} }
+
+/* ================================================================
+   BANNER
+================================================================ */
+.team-banner {
+  position: relative; height: 480px;
+  background-image: url('images/TEAM.png');
+  background-size: cover; background-position: center center;
+  background-repeat: no-repeat;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.team-banner::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(5, 15, 40, 0.60); z-index: 1;
+}
+.team-banner::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 0; right: 0; height: 80px;
+  background: linear-gradient(to bottom, transparent, rgba(5,15,40,0.25)); z-index: 1;
+}
+.banner-grid {
+  position: absolute; inset: 0; z-index: 2;
+  background-image:
+    linear-gradient(rgba(0,114,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,114,255,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.banner-particles { position: absolute; inset: 0; overflow: hidden; z-index: 3; pointer-events: none; }
+.banner-dot {
+  position: absolute; border-radius: 50%;
+  animation: floatDot linear infinite;
+}
+@keyframes floatDot {
+  0%  { transform:translateY(480px) rotate(0deg); opacity:0; }
+  10% { opacity:1; } 90% { opacity:1; }
+  100%{ transform:translateY(-60px) rotate(360deg); opacity:0; }
+}
+.banner-content {
+  position: relative; z-index: 4; color: #fff;
+  padding: 0 20px; max-width: 700px;
+}
+.banner-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(251,252,252,0.22); border: 1px solid rgba(0,114,255,0.45);
+  padding: 6px 18px; border-radius: 30px; font-size: 12px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase; color: #7ec8f7; margin-bottom: 20px;
+}
+.banner-badge i { font-size: 14px; }
+.banner-content h1 {
+  font-size: 52px; font-weight: 700; margin-bottom: 16px;
+  letter-spacing: -1px; line-height: 1.1;
+  background: linear-gradient(135deg, #ffffff 0%, #a8d4f5 50%, #5ba3e0 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.banner-divider {
+  width: 60px; height: 3px;
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  border-radius: 2px; margin: 0 auto 18px;
+}
+.banner-content p {
+  font-size: 16px; line-height: 1.75;
+  color: rgba(220,235,250,0.88); max-width: 520px; margin: 0 auto;
+}
+.banner-stats { display: flex; justify-content: center; gap: 40px; margin-top: 32px; }
+.banner-stat { text-align: center; }
+.banner-stat strong { display: block; font-size: 26px; font-weight: 700; color: #00c6ff; line-height: 1; }
+.banner-stat span { font-size: 11px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; }
+
+/* ================================================================
+   SECTION SHARED
+================================================================ */
+.section-head { text-align: center; margin-bottom: 56px; }
+.section-head .eyebrow {
+  display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #0072ff; background: #e8f0fe;
+  padding: 5px 16px; border-radius: 20px; margin-bottom: 14px;
+}
+.section-head h2 { font-size: 34px; font-weight: 700; color: #0a1a3a; margin: 0 0 12px; }
+.section-head p { color: #7a8ba0; font-size: 15px; max-width: 480px; margin: 0 auto; }
+.section-head .title-bar {
+  width: 50px; height: 3px;
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  border-radius: 2px; margin: 14px auto 0;
+}
+
+/* ================================================================
+   MANAGEMENT TEAM
+================================================================ */
+.mgmt-section { padding: 80px 0 70px; }
+.mgmt-grid {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 36px; max-width: 900px; margin: 0 auto;
+}
+.mgmt-card {
+  width: 280px; background: rgba(255,255,255,0.80); border-radius: 18px;
+  overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border: 1px solid #edf1f7; transition: transform 0.35s ease, box-shadow 0.35s ease;
+  text-align: center;
+}
+.mgmt-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,114,255,0.13); }
+.mgmt-img-wrap {
+  position: relative; height: 240px; overflow: hidden;
+  background: linear-gradient(135deg, #e8f0fe, #c9ddf7);
+}
+.mgmt-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.4s ease; }
+.mgmt-card:hover .mgmt-img-wrap img { transform: scale(1.05); }
+.mgmt-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,20,60,0.55) 0%, transparent 55%); }
+.mgmt-body { padding: 20px 22px 24px; }
+.mgmt-body h3 { font-size: 15px; font-weight: 700; color: #0a1a3a; margin: 0 0 5px; line-height: 1.35; }
+.mgmt-role { font-size: 12px; color: #0072ff; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 8px; }
+.mgmt-since {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11.5px; color: #9aabb8; background: #f3f7fb;
+  padding: 4px 12px; border-radius: 20px; margin-bottom: 14px;
+}
+.mgmt-since i { color: #0072ff; font-size: 11px; }
+.mgmt-links { display: flex; justify-content: center; gap: 10px; }
+.mgmt-li-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #0072ff; color: white; text-decoration: none;
+  font-size: 12px; font-weight: 600; padding: 6px 16px;
+  border-radius: 20px; transition: background 0.25s, transform 0.2s;
+}
+.mgmt-li-btn:hover { background: #0056cc; color: white; transform: translateY(-1px); text-decoration: none; }
+.mgmt-li-btn i { font-size: 15px; }
+
+/* ================================================================
+   CORE TEAM — flip cards
+================================================================ */
+.core-section { padding: 80px 0 70px; }
+.core-grid {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 28px; max-width: 960px; margin: 0 auto;
+}
+.flip-card { width: 220px; height: 280px; perspective: 1000px; cursor: pointer; }
+.flip-inner {
+  width: 100%; height: 100%; position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+.flip-card:hover .flip-inner { transform: rotateY(180deg); }
+.flip-front, .flip-back {
+  position: absolute; width: 100%; height: 100%; border-radius: 16px;
+  backface-visibility: hidden; overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08); border: 1px solid #edf1f7;
+}
+.flip-front {
+  background: rgba(255,255,255,0.80);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 24px 18px; transition: box-shadow 0.3s, border-color 0.3s;
+}
+.flip-card:hover .flip-front { box-shadow: 0 18px 44px rgba(0,114,255,0.12); border-color: rgba(0,114,255,0.2); }
+.flip-front img {
+  width: 140px; height: 150px; border-radius: 50%;
+  object-fit: cover; object-position: top;
+  border: 3px solid #e8f0fe; margin-bottom: 14px;
+}
+.flip-front h4 { font-size: 14px; font-weight: 700; color: #0a1a3a; margin: 0 0 5px; text-align: center; }
+.flip-front .role-tag { font-size: 11px; font-weight: 600; color: #0072ff; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+.flip-front .li-btn-sm {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11.5px; color: #0072ff; text-decoration: none;
+  font-weight: 600; padding: 5px 12px;
+  border: 1.5px solid #d0e2ff; border-radius: 20px; transition: all 0.2s;
+}
+.flip-front .li-btn-sm:hover { background: #0072ff; color: white; border-color: #0072ff; }
+.flip-front .li-btn-sm i { font-size: 14px; }
+.flip-back {
+  background: linear-gradient(140deg, #dcdfe4 0%, #dee3ee 100%);
+  transform: rotateY(180deg);
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  padding: 26px 22px; border: 1px solid black;
+}
+.flip-back::before {
+  content: ''; display: block; width: 32px; height: 3px;
+  background: #00c6ff; border-radius: 2px; margin-bottom: 12px;
+}
+.flip-back h4 { font-size: 13.5px; font-weight: 700; color: #0d0d0d; margin: 0 0 10px; }
+.flip-back p { font-size: 12.5px; color: rgba(5,5,5,0.85); line-height: 1.65; margin: 0; }
+.flip-hint {
+  font-size: 11px; color: #0b0b0b; text-align: center;
+  margin-top: -16px; margin-bottom: 36px;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+}
+.flip-hint i { font-size: 13px; color: #0072ff; }
+
+/* ================================================================
+   INTERN SECTION
+================================================================ */
+.intern-section { padding: 80px 0 80px; border-top: 1px solid #ddeaf8; }
+.intern-grid {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 22px; max-width: 1000px; margin: 0 auto;
+}
+.intern-card {
+  width: 175px; background: rgba(255,255,255,0.80); border-radius: 14px;
+  padding: 22px 16px 20px; text-align: center;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.06); border: 1px solid #e8f0f8;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+  position: relative; overflow: hidden;
+}
+.intern-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
+}
+.intern-card:hover::before { transform: scaleX(1); }
+.intern-card:hover { transform: translateY(-6px); box-shadow: 0 16px 38px rgba(0,114,255,0.12); border-color: rgba(0,114,255,0.2); }
+.intern-initials {
+  width: 70px; height: 70px; border-radius: 50%;
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  color: white; font-size: 22px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;
+}
+.intern-card h4 { font-size: 13px; font-weight: 700; color: #0a1a3a; margin: 0 0 5px; line-height: 1.3; }
+.intern-card .role-tag {
+  font-size: 10.5px; color: #fff;
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  font-weight: 600; padding: 3px 12px; border-radius: 20px;
+  display: inline-block; margin-bottom: 10px; letter-spacing: 0.3px;
+}
+.intern-desc { font-size: 11.5px; color: #7a8ba0; line-height: 1.55; margin: 0 0 12px; display: none; }
+.intern-card .li-sm {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: #eef3ff; color: #0072ff; font-size: 16px;
+  text-decoration: none; transition: background 0.25s, transform 0.2s;
+}
+.intern-card .li-sm:hover { background: #0072ff; color: white; transform: scale(1.1); }
+.intern-card:hover .intern-desc { display: block; }
+.intern-card:hover .li-sm { display: none; }
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+@media(max-width:768px){
+  .team-banner { height: 380px; }
+  .banner-content h1 { font-size: 36px; }
+  .banner-stats { gap: 24px; }
+  .banner-stat strong { font-size: 20px; }
+  .mgmt-grid { gap: 24px; }
+  .mgmt-card { width: 260px; }
+  .core-grid { gap: 20px; }
+  .flip-card { width: 200px; height: 260px; }
+  .intern-grid { gap: 16px; }
+  .intern-card { width: 155px; }
+}
+@media(max-width:500px){
+  .team-banner { height: 320px; }
+  .banner-content h1 { font-size: 28px; }
+  .banner-stats { flex-wrap: wrap; gap: 16px; }
+  .mgmt-card { width: 100%; max-width: 300px; }
+  .flip-card { width: 160px; height: 240px; }
+  .intern-card { width: 140px; }
+}
+
+</style>
+</head>
+<body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
+
+<div id="tsparticles"></div>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+  fullScreen: { enable: true, zIndex: -10 },
+  background: { color: { value: "transparent" } },
+  particles: {
+    number: { value: 45, density: { enable: true, area: 1200 } },
+    color: { value: ["#0072ff", "#00c6ff", "#f9c74f", "#ffe066", "#ffd700"] },
+    shape: { type: "circle" },
+    size: { value: { min: 3, max: 8 } },
+    move: {
+      enable: true, speed: { min: 0.6, max: 2 },
+      direction: "none", random: true, straight: false,
+      outModes: { default: "out" }
+    },
+    opacity: {
+      value: { min: 0.2, max: 0.7 },
+      animation: { enable: true, speed: 0.8, minimumValue: 0.1, sync: false }
+    },
+    links: { enable: true, distance: 140, color: "#0072ff", opacity: 0.12, width: 1 }
+  },
+  interactivity: {
+    events: {
+      onHover: { enable: true, mode: "bubble" },
+      onClick: { enable: true, mode: "push" }
+    },
+    modes: {
+      bubble: { distance: 150, size: 18, duration: 0.4, color: "#f9c74f", opacity: 0.9 },
+      push: { quantity: 4 }
+    }
+  },
+  detectRetina: true
+});
+</script>
+
+<!-- ── NAVBAR ── -->
+<div class="navbar navbar-fixed-top custom-navbar" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon icon-bar"></span><span class="icon icon-bar"></span><span class="icon icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+      <div>
+        <img src="images/logo1.png" alt="Reinerde logo" class="logoname" style="margin-left:-200px;">
+        <div class="tagline-container"><div class="tagline-text">Together for Tomorrow</div></div>
+      </div>
+      <ul class="nav navbar-nav navbar-right" style="margin-top:-50px;">
+        <li class="nav-item"><a href="index.html" class="smoothScroll">Home<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="about.html" class="smoothScroll">About us<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="product.html" class="smoothScroll">Products<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="project.html" class="smoothScroll">Projects<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="team.html" class="smoothScroll">Team<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="map.html" class="smoothScroll">Contact<span class="text-white">   |</span></a></li>
+        
+        <li class="nav-item ms-3"><a href="#" class="nav-link p-0"><i class="bi bi-headset"></i></a></li>
+        <li class="nav-item"><button class="admin-btn" onclick="openLogin()">Admin Login</button></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+function openLogin()  { document.getElementById("adminModal").style.display = "block"; }
+function closeLogin() { document.getElementById("adminModal").style.display = "none"; }
+function loginAdmin() {
+  const user = document.getElementById("adminUser").value;
+  const pass = document.getElementById("adminPass").value;
+  if (user === "admin" && pass === "1234") {
+    alert("Login Successful!"); window.location.href = "admin-dashboard.php";
+  } else { alert("Invalid Credentials"); }
+}
+window.addEventListener("scroll", function () {
+  const navbar = document.querySelector(".custom-navbar");
+  window.scrollY > 50 ? navbar.classList.add("scrolled") : navbar.classList.remove("scrolled");
+});
+</script>
+
+<!-- ================================================================
+     BANNER
+================================================================ -->
+<section class="team-banner">
+  <div class="banner-grid"></div>
+  <div class="banner-particles" id="bannerParticles"></div>
+  <div class="banner-content">
+    <div class="banner-badge reveal-down delay-1"><i class="bx bx-group"></i> Reinerde Team</div>
+    <h1 class="reveal-zoom delay-2">Meet Our People</h1>
+    <div class="banner-divider reveal-zoom delay-3"></div>
+    <p class="reveal-up delay-3">Our people define our success. We are passionate and committed to delivering high-quality environmental solutions to our clients and communities.</p>
+    <div class="banner-stats">
+      <div class="banner-stat reveal-up delay-3"><strong>2</strong><span>Directors</span></div>
+      <div class="banner-stat reveal-up delay-4"><strong>4+</strong><span>Core Members</span></div>
+      <div class="banner-stat reveal-up delay-5"><strong>6+</strong><span>Interns</span></div>
+    </div>
+  </div>
+</section>
+
+<script>
+const container = document.getElementById('bannerParticles');
+const dotColors = ['rgba(0,114,255,0.55)','rgba(249,199,79,0.65)','rgba(0,198,255,0.50)','rgba(255,224,102,0.60)','rgba(0,86,204,0.45)','rgba(255,215,0,0.55)'];
+for(let i = 0; i < 24; i++){
+  const dot = document.createElement('div');
+  dot.className = 'banner-dot';
+  const size = Math.random() * 7 + 3;
+  dot.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;bottom:-20px;background:${dotColors[i%dotColors.length]};animation-duration:${Math.random()*6+5}s;animation-delay:${Math.random()*8}s;opacity:${Math.random()*0.4+0.1};`;
+  container.appendChild(dot);
+}
+</script>
+
+<!-- ================================================================
+     MANAGEMENT TEAM
+================================================================ -->
+<section class="mgmt-section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <span class="eyebrow">Leadership</span>
+      <h2>Management Team</h2>
+      <p>The visionaries guiding our mission in environmental safety and innovation.</p>
+      <div class="title-bar"></div>
+    </div>
+    <div class="mgmt-grid">
+
+      <div class="mgmt-card reveal-left delay-2">
+        <div class="mgmt-img-wrap">
+          <img src="images/profile2.jpeg" alt="Dr. M.S. Vivek">
+          <div class="mgmt-img-overlay"></div>
+        </div>
+        <div class="mgmt-body">
+          <h3>Dr. M.S. Vivek</h3>
+          <div class="mgmt-role">Director</div>
+          <div class="mgmt-since"><i class="bx bx-calendar"></i> Since 03 June 2025</div>
+          <div class="mgmt-links"><a href="#" class="mgmt-li-btn"><i class="bx bxl-linkedin"></i> LinkedIn</a></div>
+        </div>
+      </div>
+
+      <div class="mgmt-card reveal-right delay-2">
+        <div class="mgmt-img-wrap">
+          <img src="images/profile1.jpeg" alt="Dr. Jitendra Shital Sangwai">
+          <div class="mgmt-img-overlay"></div>
+        </div>
+        <div class="mgmt-body">
+          <h3>Dr. Jitendra Shital Sangwai</h3>
+          <div class="mgmt-role">Director</div>
+          <div class="mgmt-since"><i class="bx bx-calendar"></i> Since 31 July 2020</div>
+          <div class="mgmt-links"><a href="#" class="mgmt-li-btn"><i class="bx bxl-linkedin"></i> LinkedIn</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     CORE TEAM
+================================================================ -->
+<section class="core-section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <span class="eyebrow">Core Team</span>
+      <h2>Our Team</h2>
+      <p>The engineers and specialists behind every project.</p>
+      <div class="title-bar"></div>
+    </div>
+
+    <p class="flip-hint reveal-zoom"><i class="bx bx-refresh"></i> Hover over a card to learn more</p>
+
+    <div class="core-grid">
+
+      <div class="flip-card reveal-up delay-1">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <img src="images\Muthumari.jpeg" alt="Dr. Muthumari P">
+            <h4>Dr. Muthumari P</h4>
+            <div class="role-tag">Project Lead</div>
+            <a href="#" class="li-btn-sm"><i class="bx bxl-linkedin"></i> LinkedIn</a>
+          </div>
+          <div class="flip-back">
+            <h4>Dr. Muthumari P</h4>
+            <p>Coordinated technical teams for sustainable water treatment and environmental compliance projects.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card reveal-up delay-2" style="margin-left: 100px;">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <img src="images/profile4.jpeg" alt="Nirmala Jothi">
+            <h4>Nirmala Jothi</h4>
+            <div class="role-tag">Project Associate</div>
+            <a href="#" class="li-btn-sm"><i class="bx bxl-linkedin"></i> LinkedIn</a>
+          </div>
+          <div class="flip-back">
+            <h4>Nirmala Jothi</h4>
+            <p>Involved in R&amp;D of Microbial Products, Water analysis, and integrated Upstream Engineering.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card reveal-up delay-3" style="margin-left: 100px;">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <img src="images/lathika.jpeg" alt="Lathika">
+            <h4>Lathika</h4>
+            <div class="role-tag">Project Associate</div>
+            <a href="#" class="li-btn-sm"><i class="bx bxl-linkedin"></i> LinkedIn</a>
+          </div>
+          <div class="flip-back">
+            <h4>Lathika</h4>
+            <p>Specialist in safety systems and industrial compliance for oil &amp; gas sectors.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card reveal-up delay-4">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <img src="images\jositha.jpeg" alt="Joshitha">
+            <h4>Joshitha</h4>
+            <div class="role-tag">Project Lead</div>
+            <a href="#" class="li-btn-sm"><i class="bx bxl-linkedin"></i> LinkedIn</a>
+          </div>
+          <div class="flip-back">
+            <h4>Joshitha</h4>
+            <p>Led project design reviews, technical planning, and performance optimization initiatives.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     INTERNS SECTION
+================================================================ -->
+<section class="intern-section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <span class="eyebrow">Internship Program</span>
+      <h2>Our Interns</h2>
+      <p>Talented young minds contributing to our mission of environmental innovation.</p>
+      <div class="title-bar"></div>
+    </div>
+
+    <div class="intern-grid">
+
+      <div class="intern-card reveal-zoom delay-1">
+        <div class="intern-initials">
+          <img src="images\rohit.jpeg" alt="" style="width:86px;height:86px;border-radius:45%;object-fit:cover;object-position:top;border:3px solid #e8f0fe;margin-bottom:14px;">
+        </div>
+        <h4>Rohith Kumar R</h4>
+        <div class="role-tag">Intern</div>
+        <div class="intern-desc">Assisted in R&amp;D of microbial products and wastewater treatment processes.</div>
+        <a href="#" class="li-sm"><i class="bx bxl-linkedin"></i></a>
+      </div>
+
+      <div class="intern-card reveal-zoom delay-2">
+        <div class="intern-initials">
+          <img src="images\preethi.jpeg" alt="" style="width:86px;height:86px;border-radius:45%;object-fit:cover;object-position:top;border:3px solid #e8f0fe;margin-bottom:14px;">
+        </div>
+        <h4>Preethi K</h4>
+        <div class="role-tag">Intern</div>
+        <div class="intern-desc">Worked on microbial culture handling, water testing, and treatment efficiency analysis.</div>
+        <a href="#" class="li-sm"><i class="bx bxl-linkedin"></i></a>
+      </div>
+
+      <div class="intern-card reveal-zoom delay-3">
+        <div class="intern-initials">
+          <img src="images\lashma.jpeg" alt="" style="width:86px;height:86px;border-radius:45%;object-fit:cover;object-position:top;border:3px solid #e8f0fe;margin-bottom:14px;">
+        </div>
+        <h4>Layshma M</h4>
+        <div class="role-tag">Intern</div>
+        <div class="intern-desc">Worked on frontend and backend web development along with UI improvements.</div>
+        <a href="#" class="li-sm"><i class="bx bxl-linkedin"></i></a>
+      </div>
+
+      <div class="intern-card reveal-zoom delay-4">
+        <div class="intern-initials">
+          <img src="images\kaviya.jpeg" alt="" style="width:86px;height:86px;border-radius:45%;object-fit:cover;object-position:top;border:3px solid #e8f0fe;margin-bottom:14px;">
+        </div>
+        <h4>Kaviya G</h4>
+        <div class="role-tag">Intern</div>
+        <div class="intern-desc">Involved in website planning, design customization, and content management activities.</div>
+        <a href="#" class="li-sm"><i class="bx bxl-linkedin"></i></a>
+      </div>
+
+      <div class="intern-card reveal-zoom delay-5">
+        <div class="intern-initials">
+          <img src="images\karunya.jpeg" alt="" style="width:90px;height:86px;border-radius:45%;object-fit:cover;object-position:top;border:3px solid #e8f0fe;margin-bottom:14px;">
+        </div>
+        <h4>Karunya Sri P</h4>
+        <div class="role-tag">Intern</div>
+        <div class="intern-desc">Worked on integrating sensor data and monitoring systems into the mobile/web application.</div>
+        <a href="#" class="li-sm"><i class="bx bxl-linkedin"></i></a>
+      </div>
+
+      <div class="intern-card reveal-zoom delay-6">
+        <div class="intern-initials">
+          <img src="images\keruthika.jpeg" alt="" style="width:86px;height:86px;border-radius:45%;object-fit:cover;object-position:top;border:3px solid #e8f0fe;margin-bottom:14px;">
+        </div>
+        <h4>Keruthika T</h4>
+        <div class="role-tag">Intern</div>
+        <div class="intern-desc">Involved in developing smart monitoring solutions for efficient wastewater treatment.</div>
+        <a href="#" class="li-sm"><i class="bx bxl-linkedin"></i></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-col reveal-left delay-1">
+      <h3>Reinerde</h3>
+      <p>Committed to sustainable environmental solutions, wastewater treatment, and building a greener future for tomorrow.</p>
+    </div>
+    <div class="footer-col reveal-up delay-2">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col reveal-up delay-3">
+      <h3>Contact Info</h3>
+      <p>Email: info@reinerde.com</p>
+      <p>Phone: +91 98765 43210</p>
+      <p>Location: Chennai, India</p>
+    </div>
+    <div class="footer-col reveal-right delay-1">
+      <h3>Follow Us</h3>
+      <div style="display:flex; gap:12px; margin-top:10px; flex-wrap:wrap;">
+        <a href="#" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:transparent;border:2px solid #111;color:#111;font-size:19px;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"><i class='bx bxl-instagram'></i></a>
+        <a href="#" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:transparent;border:2px solid #111;color:#111;font-size:19px;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"><i class='bx bxl-linkedin'></i></a>
+        <a href="#" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:transparent;border:2px solid #111;color:#111;font-size:19px;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"><i class='bx bxl-twitter'></i></a>
+        <a href="#" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:transparent;border:2px solid #111;color:#111;font-size:19px;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"><i class='bx bxl-whatsapp'></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Reinerde | All Rights Reserved</div>
+</footer>
+
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<div class="chatbot-toggle" onclick="toggleChat()">
+  <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Bot">
+</div>
+<div class="chatbot-box" id="chatbot">
+  <div class="chat-header">Reinerde Assistant <span onclick="toggleChat()">✖</span></div>
+  <div class="chat-body" id="chatBody">
+    <div class="bot-message">Hello 👋 How can I help you?</div>
+    <div class="options">
+      <button onclick="showAnswer('services')">Our Services</button>
+      <button onclick="showAnswer('wastewater')">Wastewater Treatment</button>
+      <button onclick="showAnswer('contact')">Contact Details</button>
+      <button onclick="showAnswer('about')">About Company</button>
+    </div>
+  </div>
+</div>
+
+<div id="adminModal" class="admin-modal">
+  <div class="admin-content">
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+    <h3>Admin Login</h3>
+    <input type="text" id="adminUser" placeholder="Username">
+    <input type="password" id="adminPass" placeholder="Password">
+    <button onclick="loginAdmin()">Login</button>
+  </div>
+</div>
+
+<div id="preloader">
+  <img src="images/logo.png" alt="Logo" class="preloader-logo">
+</div>
+
+<script>
+/* ── scroll-triggered reveal ── */
+(function () {
+  const selectors = '.reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-zoom, .reveal-flip, .reveal';
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll(selectors).forEach(el => observer.observe(el));
+})();
+
+/* ── go-top ── */
+window.addEventListener("scroll", function () {
+  const btn = document.querySelector(".go-top");
+  window.scrollY > 300 ? btn.classList.add("active") : btn.classList.remove("active");
+});
+
+/* ── chatbot ── */
+function toggleChat() {
+  const chatbot = document.getElementById("chatbot");
+  chatbot.style.display = chatbot.style.display === "block" ? "none" : "block";
+}
+function showAnswer(type) {
+  const chatBody = document.getElementById("chatBody");
+  const answers = {
+    services: "We provide Industrial Wastewater Treatment, Soil Plantation, and Environmental Restoration.",
+    wastewater: "Our wastewater systems help textile industries recycle and purify water efficiently.",
+    contact: "Contact us at info@reinerde.com or call +91-XXXXXXXXXX.",
+    about: "Reinerde Technology Pvt Ltd focuses on sustainable environmental solutions."
+  };
+  const reply = document.createElement("div");
+  reply.classList.add("bot-message");
+  reply.innerText = answers[type] || "";
+  chatBody.appendChild(reply);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+/* ── preloader ── */
+window.addEventListener("load", function () {
+  setTimeout(() => {
+    document.getElementById("preloader").style.opacity = "0";
+    setTimeout(() => { document.getElementById("preloader").style.display = "none"; }, 500);
+  }, 2400);
+});
+</script>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>

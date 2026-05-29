@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Login — Reinerde</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #012b5e;
+      --green:  #2d6a4f;
+      --mint:   #52b788;
+      --gold:   #FFD700;
+      --light:  #e8f4f0;
+      --white:  #ffffff;
+      --error:  #e74c3c;
+      --shadow: 0 20px 60px rgba(1,43,94,0.18);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #071a0d 0%, #012b5e 50%, #1a4a2e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated background blobs */
+    body::before {
+      content: '';
+      position: fixed;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(82,183,136,0.12) 0%, transparent 70%);
+      top: -100px; left: -100px;
+      animation: blobMove 12s ease-in-out infinite;
+      pointer-events: none;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, transparent 70%);
+      bottom: -80px; right: -80px;
+      animation: blobMove 15s ease-in-out infinite reverse;
+      pointer-events: none;
+    }
+    @keyframes blobMove {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%      { transform: translate(40px,-40px) scale(1.1); }
+      66%      { transform: translate(-30px,30px) scale(0.95); }
+    }
+
+    /* Floating particles */
+    .particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,215,0,0.5);
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 0.6; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    /* ── Card ── */
+    .login-card {
+      position: relative;
+      z-index: 10;
+      background: rgba(255,255,255,0.97);
+      border-radius: 24px;
+      padding: 48px 44px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: var(--shadow), 0 0 0 1px rgba(82,183,136,0.15);
+      animation: cardIn 0.7s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(40px) scale(0.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* ── Logo area ── */
+    .login-brand {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .brand-icon {
+      width: 68px; height: 68px;
+      background: linear-gradient(135deg, var(--navy), var(--green));
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      color: var(--gold);
+      margin-bottom: 14px;
+      box-shadow: 0 8px 24px rgba(1,43,94,0.25);
+    }
+    .brand-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.3px;
+    }
+    .brand-sub {
+      font-size: 12px;
+      color: #7a8fa3;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* ── Form ── */
+    .form-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a2e3d;
+      margin-bottom: 6px;
+    }
+    .form-subtitle {
+      font-size: 13px;
+      color: #8a9ab0;
+      margin-bottom: 28px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #4a5e70;
+      margin-bottom: 7px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+    .input-wrap {
+      position: relative;
+    }
+    .input-wrap i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: #9ab0c0;
+      pointer-events: none;
+      transition: color 0.2s;
+    }
+    .input-wrap input {
+      width: 100%;
+      padding: 12px 44px 12px 42px;
+      border: 1.5px solid #d8e6f0;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      color: #1a2e3d;
+      background: #f7fbfd;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .input-wrap input:focus {
+      border-color: var(--mint);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(82,183,136,0.12);
+    }
+    .input-wrap input:focus + i,
+    .input-wrap i:has(+ input:focus) { color: var(--mint); }
+    /* icon color on focus — alternative approach */
+    .input-wrap:focus-within i { color: var(--mint); }
+
+    /* Toggle password visibility */
+    .eye-btn {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #9ab0c0;
+      font-size: 18px;
+      transition: color 0.2s;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+    }
+    .eye-btn:hover { color: var(--navy); }
+
+    /* ── Error message ── */
+    .error-msg {
+      display: none;
+      background: #fdf0ef;
+      border: 1px solid #f5c6c3;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--error);
+      margin-bottom: 16px;
+      align-items: center;
+      gap: 8px;
+    }
+    .error-msg.show { display: flex; }
+    .error-msg i { font-size: 16px; flex-shrink: 0; }
+
+    /* ── Submit button ── */
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--green) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+      box-shadow: 0 6px 20px rgba(1,43,94,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .login-btn:hover  { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(1,43,94,0.3); }
+    .login-btn:active { transform: translateY(0); }
+    .login-btn.loading { opacity: 0.75; pointer-events: none; }
+    .login-btn .spinner {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+    .login-btn.loading .spinner { display: block; }
+    .login-btn.loading .btn-text { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Back link ── */
+    .back-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 22px;
+      font-size: 13px;
+      color: #7a8fa3;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--green); }
+    .back-link i { font-size: 16px; }
+
+    /* ── Security badge ── */
+    .security-note {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid #edf2f7;
+      font-size: 11px;
+      color: #aab8c4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .security-note i { color: var(--mint); font-size: 13px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .login-card { padding: 36px 24px; }
+      .brand-icon  { width: 56px; height: 56px; font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Login Card -->
+  <div class="login-card">
+
+    <!-- Brand -->
+    <div class="login-brand">
+      <div class="brand-icon"><i class='bx bxs-leaf'></i></div>
+      <div class="brand-name">Reinerde</div>
+      <div class="brand-sub">Admin Portal</div>
+    </div>
+
+    <p class="form-title">Welcome back</p>
+    <p class="form-subtitle">Sign in to manage contact messages and site activity.</p>
+
+    <!-- Error -->
+    <div class="error-msg" id="errorMsg">
+      <i class='bx bx-error-circle'></i>
+      <span id="errorText">Invalid username or password.</span>
+    </div>
+
+    <!-- Fields -->
+    <div class="field">
+      <label>Username</label>
+      <div class="input-wrap">
+        <i class='bx bx-user'></i>
+        <input type="text" id="username" placeholder="Enter admin username" autocomplete="username">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Password</label>
+      <div class="input-wrap">
+        <i class='bx bx-lock-alt'></i>
+        <input type="password" id="password" placeholder="Enter password" autocomplete="current-password">
+        <button class="eye-btn" type="button" onclick="togglePass()" id="eyeBtn" aria-label="Toggle password visibility">
+          <i class='bx bx-hide' id="eyeIcon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <button class="login-btn" id="loginBtn" onclick="handleLogin()">
+      <div class="spinner"></div>
+      <span class="btn-text"><i class='bx bx-log-in'></i> Sign In</span>
+    </button>
+
+    <!-- Back link -->
+    <a href="index.html" class="back-link">
+      <i class='bx bx-arrow-back'></i> Back to Website
+    </a>
+
+    <!-- Security note -->
+    <div class="security-note">
+      <i class='bx bx-shield-quarter'></i>
+      Protected area — authorised personnel only
+    </div>
+
+  </div>
+
+  <!-- Load shared DB module -->
+  <script src="js/reinerde-db.js"></script>
+
+  <script>
+    // ── Redirect if already logged in ──────────────────────────
+    if (ReinDB.isLoggedIn()) {
+      window.location.href = 'admin-dashboard.php';
+    }
+
+    // ── Particles ──────────────────────────────────────────────
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 20; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 5 + 3;
+      p.style.cssText = `
+        width:${size}px; height:${size}px;
+        left:${Math.random() * 100}%;
+        animation-duration:${Math.random() * 10 + 8}s;
+        animation-delay:${Math.random() * 8}s;
+        opacity:${Math.random() * 0.5 + 0.2};
+      `;
+      container.appendChild(p);
+    }
+
+    // ── Toggle password visibility ─────────────────────────────
+    function togglePass() {
+      const inp  = document.getElementById('password');
+      const icon = document.getElementById('eyeIcon');
+      if (inp.type === 'password') {
+        inp.type = 'text';
+        icon.className = 'bx bx-show';
+      } else {
+        inp.type = 'password';
+        icon.className = 'bx bx-hide';
+      }
+    }
+
+    // ── Login handler ──────────────────────────────────────────
+    function handleLogin() {
+      const btn      = document.getElementById('loginBtn');
+      const errEl    = document.getElementById('errorMsg');
+      const errText  = document.getElementById('errorText');
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      // Basic validation
+      if (!username || !password) {
+        errText.textContent = 'Please enter both username and password.';
+        errEl.classList.add('show');
+        return;
+      }
+
+      // Loading state
+      btn.classList.add('loading');
+      errEl.classList.remove('show');
+
+      // Simulate slight delay for UX (prevents instant flash)
+      setTimeout(() => {
+        const ok = ReinDB.login(username, password);
+        btn.classList.remove('loading');
+
+        if (ok) {
+          btn.innerHTML = '<i class="bx bx-check" style="font-size:20px;"></i> Redirecting…';
+          btn.style.background = 'linear-gradient(135deg,#2d6a4f,#52b788)';
+          setTimeout(() => {
+            window.location.href = 'admin-dashboard.php';
+          }, 600);
+        } else {
+          errText.textContent = 'Incorrect username or password. Please try again.';
+          errEl.classList.add('show');
+          // Shake the card
+          document.querySelector('.login-card').style.animation = 'none';
+          document.querySelector('.login-card').offsetHeight; // reflow
+          document.querySelector('.login-card').style.animation = 'shake 0.4s ease';
+        }
+      }, 700);
+    }
+
+    // ── Enter key support ──────────────────────────────────────
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter') handleLogin();
+    });
+
+    // ── Shake animation ────────────────────────────────────────
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes shake {
+        0%,100% { transform: translateX(0); }
+        20%      { transform: translateX(-8px); }
+        40%      { transform: translateX(8px); }
+        60%      { transform: translateX(-5px); }
+        80%      { transform: translateX(5px); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+
+</body>
+</html>

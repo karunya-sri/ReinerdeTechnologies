@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+New Event
+http://www.templatemo.com/tm-486-new-event
+-->
+<title>Reinerde</title>
+<meta name="description" content="">
+<meta name="author" content="">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/owl.theme.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<!-- Main css -->
+<link rel="stylesheet" href="css/style.css">
+ <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<!-- Google Font -->
+<link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'>
+<style>
+.hero {
+background: url("./images/banner4.png") center/cover no-repeat;
+
+      height: 600px;
+      position: relative;
+      display: flex;
+      align-items: center;
+}
+
+
+
+/* ================= SCROLL ANIMATION ================= */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:all 0.8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:768px){
+
+
+}
+/* ================= SCROLL ANIMATION ================= */
+/* ===============================
+   INITIAL HIDDEN STATE
+================================= */
+
+/* =====================================
+   SCROLL ANIMATION (CLEAN VERSION)
+===================================== */
+
+/* Initial hidden state */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.go-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+
+  background: linear-gradient(135deg, #eaf2f5, #012b5e);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  font-size: 22px;
+  text-decoration: none;
+
+  box-shadow: 0 10px 25px rgba(30, 10, 10, 0.4);
+  transition: all 0.3s ease;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Show when active */
+.go-top.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hover effect */
+.go-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(76, 76, 77, 0.7);
+}
+
+/* Icon smooth */
+.go-top i {
+  transition: 0.3s ease;
+}
+
+.go-top:hover i {
+  transform: translateY(-3px);
+}
+/* Floating Bot Button */
+.chatbot-toggle {
+  position: fixed;
+  bottom: 95px;
+  right: 25px;
+  width: 65px;
+  height: 65px;
+  right: 20px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 114, 255, 0.5);
+  transition: 0.3s ease;
+}
+
+.chatbot-toggle:hover {
+  transform: scale(1.1);
+}
+
+.chatbot-toggle img {
+  width: 35px;
+  height: 35px;
+}
+
+/* Chatbot Box */
+.chatbot-box {
+  position: fixed;
+  bottom: 110px;
+  right: 25px;
+  width: 320px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 20px 50px rgba(0, 114, 255, 0.3);
+  overflow: hidden;
+  display: none;
+  animation: slideUp 0.4s ease;
+}
+
+/* Header */
+.chat-header {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Body */
+.chat-body {
+  padding: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.bot-message {
+  background: #e6f4ff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Option Buttons */
+.options button {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #0072ff;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.options button:hover {
+  background: #0056cc;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* SECTION */
+.overview-section {
+  padding: 80px 10%;
+  background: linear-gradient(to right, #f8fbff, #eef5ff);
+}
+
+/* TITLE */
+.section-title {
+  text-align: center;
+  font-size: 38px;
+  color: #012b5e;
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+
+/* LAYOUT */
+.overview-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* TEXT */
+.overview-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.overview-text p {
+  font-size: 17px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #0072ff;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #0056cc;
+  transform: translateY(-3px);
+}
+
+/* IMAGE */
+.overview-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.overview-image img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: 0.4s;
+}
+
+/* IMAGE HOVER EFFECT */
+.overview-image img:hover {
+  transform: scale(1.05);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .overview-content {
+    flex-direction: column;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+}
+
+/* SECTION */
+/* SECTION */
+
+
+
+
+
+
+/* ANIMATIONS */
+@keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(-60px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+    from { opacity: 0; transform: translateX(60px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .problem-text h2 {
+        font-size: 30px;
+    }
+
+    .video-box iframe {
+        height: 220px;
+    }
+}
+
+
+
+/* ===== Animations ===== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 768px) {
+    .faq-title h2 {
+        font-size: 30px;
+    }
+
+    .faq-question {
+        font-size: 16px;
+        padding: 18px;
+    }
+}
+
+
+
+
+.main-footer {
+     background: linear-gradient(900deg, #6e98b2, #73d3f3, #6e98b2);
+    color: rgb(7, 7, 7);
+    padding: 60px 0 20px;
+    animation: fadeUp 1.2s ease;
+}
+
+.footer-container {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+.footer-col h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    border-bottom: 2px solid #66ccff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-col p {
+    font-size: 14px;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin: 10px 0;
+}
+
+.footer-col ul li a {
+    color: rgb(14, 14, 14);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #66ccff;
+    padding-left: 8px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 20px;
+    color: rgb(8, 8, 8);
+    transition: 0.4s;
+}
+
+.social-icons a:hover {
+    color: #66ccff;
+    transform: translateY(-5px) scale(1.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+.home_sci a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: 2px solid rgb(3, 3, 3);
+    font-size: 20px;
+    color: rgb(6, 6, 6) ;
+    border-radius: 50%;
+    text-decoration: none;
+    margin: 30px 15px 30px 0;
+    transition: .5s ease;
+     opacity: 0;
+    animation: slideLeft .5s ease forwards;
+   animation-delay: calc(.1s * var(--i));
+    
+}
+
+.home_sci a:hover{
+    background-color: rgb(246, 246, 246);
+    color: black;
+    box-shadow: 0 0 20px rgb(6, 6, 6);
+}
+/* Animation */
+@keyframes fadeUp {
+    from {
+        transform: translateY(60px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+ .logoname {
+
+      height: auto;
+      max-height: 130px;
+      width: auto;
+      margin-left: -200px;    
+      margin-top: -35px;            /* keep your original offset */
+      transition: transform 0.5s ease, filter 0.3s;
+      filter: drop-shadow(0 4px 6px #061a28);
+      animation: floatLogo 4s infinite ease-in-out;  /* gentle floating */
+    }
+
+    /* logo floating animation */
+    @keyframes floatLogo {
+      0% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-4px) scale(1.02); filter: drop-shadow(0 8px 12px #f9c74f80); }
+      100% { transform: translateY(0px) scale(1); }
+    }
+
+    /* extra hover effect for logo */
+    .logoname:hover {
+      animation: none;                    /* pause float on hover */
+      transform: scale(1.08) rotate(-1deg);
+      filter: drop-shadow(0 0 10px #f9c74f);
+    }
+
+
+
+.icon{
+    font-size:35px;
+}
+
+#tsparticles {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  pointer-events: none;
+}
+.quote-text{
+  position: relative;
+  color: #ffffff;
+  font-size: 26px;
+  max-width: 600px;
+  line-height: 0.6;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  margin-top: 50px;
+  left:60px;
+
+}
+
+.line{
+  display: block;
+}
+
+.quote-iconpp{
+  font-size: 70px;
+  color: #FFD700;
+  position: absolute;
+  left: -60px;
+ top: -20px;
+}
+
+.quote-icon.end{
+
+    font-size: 70px;
+  color: #FFD700;
+  position: absolute;
+  right: 70px;
+  top: 50px;
+}
+
+.highlight{
+  font-weight: bold;
+  color: #FFD700;
+  margin-top: 50px;
+  margin-left: -50px;
+}
+
+
+
+
+.tagline-container {
+  width: 100px;
+  overflow: hidden;
+  margin-top: -60px;
+  margin-left: -120px;
+}
+
+.tagline-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  color: #efebeb;
+  animation: scrollText 8s linear infinite;
+}
+
+@keyframes scrollText {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Admin Button */
+.admin-btn {
+  background: linear-gradient(45deg, black,rgb(34, 34, 34));
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-right: -0px;
+}
+
+.admin-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Modal Background */
+.admin-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+/* Modal Box */
+.admin-content {
+  background: white;
+  width: 300px;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  animation: slideUp 0.4s ease;
+}
+
+/* Inputs */
+.admin-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Close Button */
+.close-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Login Button */
+.admin-content button {
+  background: #0b5ed7;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+/* Banner Section */
+.team-banner {
+  position: relative;
+  height: 450px;
+  background: url("images/bannerproject.jpeg") center/cover no-repeat;
+}
+
+/* Overlay */
+.banner-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* COMMON TEXT STYLE */
+.banner-text {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+}
+
+/* LEFT BLOCK (MOVED DOWN) */
+.banner-left {
+  top: 140px;   /* 👈 CONTROL HEIGHT HERE */
+  left: 60px;
+  max-width: 420px;
+}
+
+.banner-left h1 {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.banner-left p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
+}
+
+/* CENTER TOP TEXT */
+.banner-center {
+  top: 100px;  /* 👈 slightly above */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.banner-center h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.banner-icons {
+  margin-top: 10px;
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+/* RIGHT TEXT */
+.banner-right {
+  top: 140px;   /* 👈 SAME LINE AS LEFT */
+  right: 60px;
+  text-align: right;
+}
+
+.banner-right p {
+  font-size: 14px;
+  color: white;
+}
+
+/* RESPONSIVE */
+
+
+.banner-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+
+
+.global-section {
+  text-align: center;
+  padding: 70px 20px 40px;
+ 
+}
+
+.global-section h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #222;
+}
+
+.global-section p {
+  max-width: 700px;
+  margin: 15px auto 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* MAP BOX */
+.geo-section-box{
+    width:100%;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* WRAPPER */
+.geo-map-wrapper {
+  position: relative;
+  width: 1100px;
+  height: 450px;
+  margin: 50px auto;
+}
+
+/* MAP */
+#geoMapCanvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* LABEL */
+.geo-label{
+    background:#003cff;
+    color:white;
+    padding:5px 10px;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:bold;
+    border:none;
+}
+
+/* PULSE */
+.geo-pulse-dot{
+    width:16px;
+    height:16px;
+    background:#ff4757;
+    border-radius:50%;
+    position:relative;
+}
+
+.geo-pulse-dot::after{
+    content:'';
+    position:absolute;
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:#ff4757;
+    animation:geoPulseAnim 1.5s infinite;
+}
+
+@keyframes geoPulseAnim{
+    0%{transform:scale(1);opacity:1;}
+    100%{transform:scale(3);opacity:0;}
+}
+
+/* GLOW */
+.leaflet-interactive{
+    filter:drop-shadow(0 0 8px rgba(0,150,255,0.8));
+}
+
+
+
+
+/* SECTION */
+.counter-sec-a1{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:60px 20px;
+    
+    color:white;
+}
+
+/* BOX */
+.counter-box-a1{
+    text-align:center;
+}
+
+/* ICON */
+.counter-icon-a1{
+    font-size:28px;
+    color:#ff5a3c;
+    margin-bottom:10px;
+}
+
+/* NUMBER */
+.counter-num-a1{
+    font-size:42px;
+    font-weight:bold;
+    color: #0b5ed7;
+}
+
+/* PLUS */
+.counter-num-a1 span{
+    color:#ff5a3c;
+}
+
+/* TEXT */
+.counter-text-a1{
+    font-size:15px;
+    color:#0c0c0c;
+    margin-top:8px;
+    letter-spacing:1px;
+}
+
+
+
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── SECTION ─── */
+.journey-sec-z {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 100px 20px 140px;
+  background: transparent;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ghost background word */
+.journey-sec-z::before {
+  content: "PROJECTS";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(5rem, 14vw, 10rem);
+  font-weight: 800;
+  color: #0a4a04;
+  opacity: 0.03;
+  letter-spacing: .12em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* ─── TITLE ─── */
+.journey-title-z {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -.03em;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.journey-title-z span {
+  color: #196b08;
+  font-size: 29px;
+      font-family: inherit;
+}
+
+.journey-subtitle-z {
+  font-size: .95rem;
+  color: #64748b;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: .02em;
+}
+
+/* ─── WRAP ─── */
+.journey-wrap-z {
+  position: relative;
+  max-width: 1020px;
+  height: 1580px;
+  margin: auto;
+}
+
+/* ─── SVG LINE ─── */
+.journey-line-z {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ─── CARD ─── */
+.journey-card-z {
+  width: 370px;
+  position: absolute;
+  z-index: 2;
+  transform: translateY(40px);
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.journey-card-z.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── INNER ─── */
+.inner-z {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.04), 0 12px 32px rgba(0,0,0,0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journey-card-z:hover .inner-z {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.06), 0 24px 48px rgba(0,0,0,0.12);
+}
+
+/* ─── CARD IMAGE ─── */
+.card-img {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.journey-card-z:hover .card-img img {
+  transform: scale(1.05);
+}
+
+/* Gradient overlay on image */
+.card-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.35));
+}
+
+/* ─── NUMBER BADGE on image ─── */
+.num-z {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  z-index: 2;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: #fff;
+  background: rgba(0,0,0,0.35);
+  padding: 4px 10px;
+  border-radius: 100px;
+  backdrop-filter: blur(4px);
+}
+
+/* ─── CARD BODY ─── */
+.card-body-z {
+  padding: 20px 22px 24px;
+  text-align: left;
+}
+
+/* Color stripe at top of body */
+.card-stripe {
+  width: 32px;
+  height: 3px;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+.head-z {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.desc-z {
+  font-size: .82rem;
+  color: #64748b;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+/* ─── TAG ─── */
+.card-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+/* ─── PIN DOT ─── */
+.pin-z {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px currentColor, 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* ─── POSITIONS ─── */
+.c1 { top: 20px;   left: -40px; }
+.c2 { top: 280px;  right: -40px; }
+.c3 { top: 560px;  left: -40px; }
+.c4 { top: 840px;  right: -40px; }
+.c5 { top: 1380px; left: 50%; transform: translateX(-50%) translateY(40px); }
+.c5.show { transform: translateX(-50%) translateY(0); }
+
+/* ─── CARD COLORS ─── */
+.bg1 .card-stripe { background: #f97316; }
+.bg1 .card-tag    { background: #fff7ed; color: #c2410c; }
+.p1               { color: #f97316; background: #f97316; }
+
+.bg2 .card-stripe { background: #1a56db; }
+.bg2 .card-tag    { background: #eff6ff; color: #1e40af; }
+.p2               { color: #1a56db; background: #1a56db; }
+
+.bg3 .card-stripe { background: #7c3aed; }
+.bg3 .card-tag    { background: #f5f3ff; color: #5b21b6; }
+.p3               { color: #7c3aed; background: #7c3aed; }
+
+.bg4 .card-stripe { background: #059669; }
+.bg4 .card-tag    { background: #ecfdf5; color: #065f46; }
+.p4               { color: #059669; background: #059669; }
+
+.bg5 .card-stripe { background: #dc2626; }
+.bg5 .card-tag    { background: #fef2f2; color: #991b1b; }
+.p5               { color: #dc2626; background: #dc2626; }
+
+/* ─── FLOATING PARTICLES ─── */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: float-p 6s ease-in-out infinite;
+}
+@keyframes float-p {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+
+/* ─── TRANSITION DELAYS ─── */
+.c1 { transition-delay: 0s; }
+.c2 { transition-delay: 0.15s; }
+.c3 { transition-delay: 0.3s; }
+.c4 { transition-delay: 0.45s; }
+.c5 { transition-delay: 0.6s; }
+
+
+
+/* SHOW */
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ── PROCESS SECTION ── */
+.process-section {
+  padding: 90px 6%;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.process-section::before {
+  content: 'PROCESS';
+  position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
+  font-size: 120px; font-weight: 800; color: rgba(0,114,255,0.04);
+  letter-spacing: 10px; white-space: nowrap; pointer-events: none;
+}
+.process-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.process-step {
+  flex: 1;
+  min-width: 180px;
+  max-width: 220px;
+  text-align: center;
+  padding: 0 10px;
+  position: relative;
+}
+.process-step:not(:last-child)::after {
+  content: '';
+  position: absolute; top: 32px; right: -10px;
+  width: 20px; height: 2px;
+  background: linear-gradient(90deg, #00ff5e, #56730d);
+}
+.step-circle {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, #17f62e, #117106);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 22px; color: #fff;
+  box-shadow: 0 8px 24px rgba(255, 255, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.process-step:hover .step-circle {
+  transform: scale(1.12) rotate(5deg);
+  box-shadow: 0 12px 32px rgba(1, 47, 12, 0.5);
+}
+.step-num { font-size: 11px; color: #00ff37; font-weight: 700; letter-spacing: 2px; margin-bottom: 6px; }
+.step-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.step-desc { font-size: 14px; color: #777; line-height: 1.6; }
+
+.projects-section {
+  padding: 90px 6%;
+  background: #f0f6ff;
+}
+.section-heading {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.section-heading .tag {
+  display: inline-block;
+  background: linear-gradient(90deg, #ffff00, #f4f004);
+  color: #fff; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  padding: 5px 18px; border-radius: 50px; margin-bottom: 14px;
+}
+.section-heading h2 {
+  font-size: 38px; font-weight: 700; color: var(--navy);
+  line-height: 1.2;
+}
+.section-heading h2 em { color: #eeff00; font-style: normal; }
+.section-heading p { max-width: 550px; margin: 14px auto 0; color: #080808; font-size: 19px; line-height: 1.7; }
+
+
+/* ===== SCROLL ANIMATION ===== */
+.reveal { opacity: 0; transform: translateY(60px); transition: all 0.8s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* ── TESTIMONIAL ── */
+.testimonial-section {
+  padding: 90px 6%;
+
+}
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.testimonial-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 6px 30px rgba(1,43,94,0.08);
+  position: relative;
+  transition: transform 0.35s, box-shadow 0.35s;
+}
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,114,255,0.14);
+}
+.quote-mark {
+  font-size: 72px; line-height: 0.7; color: #0072ff; opacity: 0.12;
+  font-family: Georgia, serif; position: absolute; top: 24px; right: 28px;
+}
+.stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+.testimonial-text { font-size: 14px; color: #555; line-height: 1.8; margin-bottom: 22px; font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 14px; }
+.author-avatar {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: white; font-weight: 700; flex-shrink: 0;
+}
+.author-name { font-weight: 700; font-size: 14px; color: var(--navy); }
+.author-role { font-size: 12px; color: #888; margin-top: 2px; }
+.author-company { font-size: 11px; color: #0072ff; margin-top: 2px; font-weight: 600; }
+
+/* ── CTA ── */
+.cta-section {
+  padding: 80px 6%;
+  text-align: center;
+  background: #fff;
+}
+.cta-inner {
+  max-width: 700px; margin: 0 auto;
+  background: linear-gradient(135deg, #012b5e, #0072ff);
+  border-radius: 28px; padding: 60px 50px;
+  box-shadow: 0 30px 70px rgba(0,114,255,0.3);
+  position: relative; overflow: hidden;
+}
+.cta-inner::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 280px; height: 280px; border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+.cta-inner h2 { font-size: 34px; font-weight: 800; color: #fff; margin-bottom: 14px; position: relative; }
+.cta-inner p { color: rgba(255,255,255,0.8); font-size: 15px; line-height: 1.7; margin-bottom: 34px; position: relative; }
+.cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+.btn-cta-primary {
+  background: var(--gold); color: var(--navy); padding: 14px 34px;
+  border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 14px;
+  transition: 0.3s; border: none; cursor: pointer;
+}
+.btn-cta-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255,215,0,0.5); }
+.btn-cta-secondary {
+  background: transparent; color: #fff; padding: 14px 34px;
+  border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px;
+  transition: 0.3s; border: 2px solid rgba(255,255,255,0.4); cursor: pointer;
+}
+.btn-cta-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+
+</style>
+</head>
+<body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
+<div id="tsparticles"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script>
+tsParticles.load("tsparticles", {
+  fullScreen: { enable: false },
+  particles: {
+    number: { value: 15 },
+    color: { value: "#FFD700" },
+    size: { value: { min: 1, max: 7 } },
+    move: {
+      enable: true,
+      speed: 1.5,
+      outModes: { default: "out" }
+    },
+    opacity: { value: 0.9 }
+  },
+  interactivity: {
+    events: {
+      onHover: { enable: true, mode: "bubble" }
+    },
+    modes: {
+      bubble: {
+        distance: 100,
+        size: 12,
+        duration: 0.3,
+        color: "#0066FF",
+        opacity: 1
+      }
+    }
+  },
+  detectRetina: true
+});
+</script>
+
+
+<!-- =========================
+     NAVIGATION LINKS     
+============================== -->
+<div class="navbar navbar-fixed-top custom-navbar" role="navigation">
+	
+	<div class="container">
+		
+
+		<!-- navbar header -->
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			
+		</div>
+
+		<div class="collapse navbar-collapse">
+     <div>
+              <img src="K:\templatemo_486_new_event\templatemo_486_new_event\images\logo1.png" 
+             alt="BioCulture logo" 
+             class="logoname" 
+             style="margin-left: -200px;">
+               <div class="tagline-container">
+  <div class="tagline-text">
+    Together for Tomorrow
+  </div>
+</div>
+</div>
+			<ul class="nav navbar-nav navbar-right" style="margin-top: -50px;">
+				<li class="nav-item"><a href="index.html" class="smoothScroll">Home<span class="text-white">   |</span></a></li>
+				<li class="nav-item"><a href="product.html" class="smoothScroll">About us<span class="text-white">   |</span></a></li>
+				<li class="nav-item"><a href="about.html" class="smoothScroll">Products<span class="text-white">   |</span></a></li>
+				<li class="nav-item"><a href="product.html" class="smoothScroll">Projects<span class="text-white">   |</span></a></li>
+				<li class="nav-item"><a href="team.html" class="smoothScroll">Team<span class="text-white">   |</span></a></li>
+				<li class="nav-item"><a href="map.html" class="smoothScroll">Contact<span class="text-white">   |</span></a></li>
+        
+		    <!-- Headphone Icon -->
+        <li class="nav-item ms-3">
+            <a href="#" class="nav-link p-0">
+                <i class="bi bi-headset"></i>
+            </a>
+        </li>
+			
+             
+        <li class="nav-item">
+        <button class="admin-btn" onclick="openLogin()">Admin Login</button>
+        </li>
+        </ul>
+        <script>
+function openLogin() {
+  document.getElementById("adminModal").style.display = "block";
+}
+
+function closeLogin() {
+  document.getElementById("adminModal").style.display = "none";
+}
+
+function loginAdmin() {
+  const user = document.getElementById("adminUser").value;
+  const pass = document.getElementById("adminPass").value;
+
+  // Simple demo login (you can connect backend later)
+  if (user === "admin" && pass === "1234") {
+    alert("Login Successful!");
+    window.location.href = "admin-dashboard.php"; // redirect page
+  } else {
+    alert("Invalid Credentials");
+  }
+}
+</script>
+			</ul>
+
+		</div>
+
+	</div>
+</div>
+<script>
+window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".custom-navbar");
+
+    if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+</script>
+
+
+
+
+<section class="team-banner">
+
+  <div class="banner-overlay"></div>
+
+  <!-- LEFT -->
+  <div class="banner-text banner-left">
+    <h1>SUSTAINABLE<br>RESOURCE HUB</h1>
+    <p>WASTE WATER TREATMENT | CLEAN WATER RECOVERY</p>
+  </div>
+
+  <!-- CENTER -->
+  <div class="banner-text banner-center" style="margin-top: 250px;">
+    <h2>FOR A GREENER FUTURE</h2>
+    <div class="banner-icons">
+      🌊 EcoWater &nbsp;&nbsp; ♻️ RecycleRight &nbsp;&nbsp; 🌱 BioPower
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="banner-text banner-right">
+    <p>WASTE RECYCLING FACILITY</p>
+    <br>
+    <p>RENEWABLE ENERGY | BIOGAS & WASTE TO POWER</p>
+  </div>
+
+</section>
+
+
+
+<section class="global-section">
+
+  <h1>We're global to privilege you</h1>
+
+  <p>
+    We deliver innovative environmental solutions across the globe, focusing on wastewater treatment,
+    recycling systems, and renewable energy. Our projects empower communities with clean water,
+    reduce environmental impact, and transform waste into valuable resources for a sustainable future.
+  </p>
+
+</section>
+
+
+
+<div class="geo-map-wrapper">
+    <div id="geoMapCanvas"></div>
+</div>
+
+<!-- ✅ Leaflet JS (REQUIRED) -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+/* MAP INIT */
+var geoMap = L.map('geoMapCanvas').setView([20,78],3);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+.addTo(geoMap);
+
+
+/* PULSE MARKER */
+function createPulseMarker(loc, name){
+    return L.marker(loc,{
+        icon:L.divIcon({
+            html:'<div class="geo-pulse-dot"></div>',
+            iconSize:[20,20],
+            className:""
+        })
+    })
+    .addTo(geoMap)
+    .bindTooltip(name,{
+        permanent:true,
+        direction:"top",
+        offset:[0,-10],
+        className:"geo-label"
+    });
+}
+
+
+/* CURVE */
+function buildCurve(start,end){
+
+    let latlngs = [];
+
+    let midLat = (start[0] + end[0]) / 2 + 12;
+    let midLng = (start[1] + end[1]) / 2;
+
+    for(let t=0; t<=1; t+=0.02){
+
+        let lat = (1-t)*(1-t)*start[0] + 2*(1-t)*t*midLat + t*t*end[0];
+        let lng = (1-t)*(1-t)*start[1] + 2*(1-t)*t*midLng + t*t*end[1];
+
+        latlngs.push([lat,lng]);
+    }
+
+    return latlngs;
+}
+
+
+/* ANIMATION */
+function animateCurve(start,end,name,color,delay){
+
+    setTimeout(function(){
+
+        let curve = buildCurve(start,end);
+        let current = [];
+        let i = 0;
+
+        let line = L.polyline(current,{
+            color: color,
+            weight: 3,
+            opacity: 0.9,
+            dashArray: "6, 10",
+            lineCap: "round"
+        }).addTo(geoMap);
+
+        let interval = setInterval(function(){
+
+            current.push(curve[i]);
+            line.setLatLngs(current);
+            i++;
+
+            if(i >= curve.length){
+                clearInterval(interval);
+                createPulseMarker(end, name);
+            }
+
+        },20);
+
+    },delay);
+}
+
+
+/* MAIN LOCATION */
+var hqIndia = [12.9916, 80.2410];
+createPulseMarker(hqIndia,"IITM Research Park, Chennai");
+
+
+/* CLIENTS */
+var clientPoints = [
+
+    {loc:[11.1085,77.3411], name:"Tiruppur", color:"#1e90ff"},
+    {loc:[15.9129,79.7400], name:"Andhra Pradesh", color:"#00d2d3"},
+    {loc:[18.5204,73.8567], name:"Pune", color:"#ff9f43"},
+    {loc:[19.0760,72.8777], name:"Mumbai", color:"#2ed573"},
+    {loc:[39.9042,116.4074], name:"China", color:"#ff6b81"},
+    {loc:[40.7128,-74.0060], name:"New York", color:"#ff4757"},
+    {loc:[51.5074,-0.1278], name:"London", color:"#9b59b6"},
+    {loc:[35.6762,139.6503], name:"Tokyo", color:"#ffa502"},
+    {loc:[-33.8688,151.2093], name:"Sydney", color:"#00b894"}
+];
+
+
+/* RUN */
+clientPoints.forEach(function(c,index){
+    animateCurve(hqIndia, c.loc, c.name, c.color, 1200 + index*900);
+});
+
+});
+</script>
+
+
+
+
+<section class="counter-sec-a1" id="counterSectionX">
+
+    <div class="counter-box-a1">
+        <div class="counter-icon-a1">🏆</div>
+        <div class="counter-num-a1" data-val="5">0<span>+</span></div>
+        <div class="counter-text-a1">Research Grant</div>
+    </div>
+
+    <div class="counter-box-a1">
+        <div class="counter-icon-a1">📦</div>
+        <div class="counter-num-a1" data-val="190">0<span>+</span></div>
+        <div class="counter-text-a1">CASE STUDIES</div>
+    </div>
+
+    <div class="counter-box-a1">
+        <div class="counter-icon-a1">👥</div>
+        <div class="counter-num-a1" data-val="50">0<span>+</span></div>
+        <div class="counter-text-a1">CUSTOMERS</div>
+    </div>
+
+    <div class="counter-box-a1">
+        <div class="counter-icon-a1">🏢</div>
+        <div class="counter-num-a1" data-val="5">0<span>+</span></div>
+        <div class="counter-text-a1">PROJECTS</div>
+    </div>
+
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    let started = false;
+
+    const section = document.getElementById("counterSectionX");
+
+    function startCounter(){
+
+        const counters = document.querySelectorAll('.counter-num-a1');
+
+        counters.forEach(counter => {
+
+            const target = parseInt(counter.getAttribute('data-val'));
+            let count = 0;
+
+            const increment = Math.ceil(target / 120);
+
+            function update(){
+                count += increment;
+
+                if(count >= target){
+                    counter.innerHTML = target.toLocaleString() + "<span>+</span>";
+                } else {
+                    counter.innerHTML = count.toLocaleString() + "<span>+</span>";
+                    requestAnimationFrame(update);
+                }
+            }
+
+            update();
+        });
+    }
+
+    /* 🔥 INTERSECTION OBSERVER */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting && !started){
+                startCounter();
+                started = true;
+            }
+        });
+    }, { threshold: 0.3 });
+
+    observer.observe(section);
+
+    /* ✅ FALLBACK (if already visible) */
+    if(section.getBoundingClientRect().top < window.innerHeight){
+        startCounter();
+        started = true;
+    }
+
+});
+</script>
+
+
+
+
+
+<section class="journey-sec-z">
+
+  <!-- particles -->
+  <div class="particle" style="width:10px;height:10px;background:#f97316;opacity:.5;top:8%;left:12%;animation-delay:0s;"></div>
+  <div class="particle" style="width:7px;height:7px;background:#1a56db;opacity:.4;top:15%;right:18%;animation-delay:1s;"></div>
+  <div class="particle" style="width:12px;height:12px;background:#7c3aed;opacity:.35;top:40%;left:5%;animation-delay:2s;"></div>
+  <div class="particle" style="width:6px;height:6px;background:#059669;opacity:.5;top:55%;right:8%;animation-delay:0.5s;"></div>
+  <div class="particle" style="width:9px;height:9px;background:#f97316;opacity:.4;bottom:20%;left:20%;animation-delay:1.5s;"></div>
+  <div class="particle" style="width:5px;height:5px;background:#1a56db;opacity:.5;bottom:10%;right:22%;animation-delay:2.5s;"></div>
+
+  <h2 class="journey-title-z">Our <span>Projects</span></h2>
+  <p class="journey-subtitle-z">Real-world solutions delivering measurable impact</p>
+
+  <div class="journey-wrap-z">
+
+    <!-- SVG LINE -->
+    <svg class="journey-line-z" id="lineSvg"></svg>
+
+    <!-- CARD 1 -->
+    <div class="journey-card-z c1">
+      <div class="pin-z p1"></div>
+      <div class="inner-z bg1">
+        <div class="card-img">
+          <div class="num-z">01</div>
+          <img src="images/project3.png" alt="Leather Industry">
+        </div>
+        <div class="card-body-z">
+          <div class="card-stripe"></div>
+          <div class="head-z" style="font-size: 15px;">Leather Industry – AP</div>
+          <div class="desc-z" style="font-size: 13px; color:#080808;">Reinerde provided sustainable biological treatment solutions for leather processing units. Our solutions effectively controlled odor, improved sludge settling, and enhanced organic removal efficiency.</div>
+          <span class="card-tag">Wastewater Treatment</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="journey-card-z c2">
+      <div class="pin-z p2"></div>
+      <div class="inner-z bg2">
+        <div class="card-img">
+          <div class="num-z">02</div>
+          <img src="images/project4.png" alt="Textile Industry">
+        </div>
+        <div class="card-body-z">
+          <div class="card-stripe"></div>
+          <div class="head-z" style="font-size: 15px;">Textile Industry – Tiruppur</div>
+          <div class="desc-z"style="font-size: 13px; color:#080808;">Reinerde successfully implemented advanced wastewater treatment solutions for textile dyeing units in Tiruppur. Our bio-culture technology significantly reduced COD, BOD, and improved sludge stability while ensuring compliance.</div>
+          <span class="card-tag">Bio Treatment</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="journey-card-z c3">
+      <div class="pin-z p3"></div>
+      <div class="inner-z bg3">
+        <div class="card-img">
+          <div class="num-z">03</div>
+          <img src="images/AOP.png" alt="Project 3">
+        </div>
+        <div class="card-body-z">
+          <div class="card-stripe"></div>
+          <div class="head-z" style="font-size: 15px;">AOP- advanced oxidation process</div>
+          <div class="desc-z" style="font-size: 13px; color:#080808;">Advanced industrial solutions deployed at scale. Our team delivered precision engineering with measurable outcomes across all key performance indicators.</div>
+          <span class="card-tag">Industrial</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="journey-card-z c4">
+      <div class="pin-z p4"></div>
+      <div class="inner-z bg4">
+        <div class="card-img">
+          <div class="num-z">04</div>
+          <img src="images/TATA.png" alt="Project 4">
+        </div>
+        <div class="card-body-z">
+          <div class="card-stripe"></div>
+          <div class="head-z" style="font-size: 15px;">TATA Motors Mumbai / Jamsehpu</div>
+          <div class="desc-z"style="font-size: 13px; color:#080808;">Innovative ecological restoration and sustainable process optimisation at a large-scale manufacturing facility, showcasing real and lasting results.</div>
+          <span class="card-tag">Sustainability</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="journey-card-z c5">
+      <div class="pin-z p5"></div>
+      <div class="inner-z bg5">
+        <div class="card-img">
+          <div class="num-z" >05</div>
+          <img src="images/SOLAR.png" alt="Project 5">
+        </div>
+        <div class="card-body-z">
+          <div class="card-stripe"></div>
+          <div class="head-z" style="font-size: 15px;">Vikram Solar</div>
+          <div class="desc-z"style="font-size: 13px; color:#080808;">Building trust through transparent process documentation, third-party audits, and community engagement — ensuring lasting compliance and goodwill.</div>
+          <span class="card-tag">Compliance</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function buildPathD() {
+  const cards = document.querySelectorAll(".journey-card-z");
+  const container = document.querySelector(".journey-wrap-z");
+  const parentRect = container.getBoundingClientRect();
+  let points = [];
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    points.push({
+      x: rect.left + rect.width / 2 - parentRect.left,
+      y: rect.top + rect.height / 2 - parentRect.top
+    });
+  });
+  let d = "";
+  points.forEach((p, i) => {
+    if (i === 0) {
+      d += `M ${p.x} ${p.y}`;
+    } else {
+      const prev = points[i - 1];
+      const cx = (prev.x + p.x) / 2;
+      const cy1 = prev.y + (p.y - prev.y) * 0.4;
+      const cy2 = prev.y + (p.y - prev.y) * 0.6;
+      d += ` C ${cx} ${cy1}, ${cx} ${cy2}, ${p.x} ${p.y}`;
+    }
+  });
+  return d;
+}
+
+function drawPath() {
+  const svg = document.getElementById("lineSvg");
+  const d = buildPathD();
+
+  /* small car — always upright, never rotates */
+  const carSVG = `
+    <g id="car" transform="translate(-11,-9)">
+      <!-- body -->
+      <rect x="1" y="6" width="20" height="8" rx="2" fill="#1a56db"/>
+      <!-- cabin -->
+      <rect x="4" y="2" width="12" height="7" rx="2" fill="#2563eb"/>
+      <!-- windshield -->
+      <rect x="5" y="3" width="10" height="5" rx="1" fill="#bfdbfe" opacity="0.85"/>
+      <!-- wheels -->
+      <circle cx="5"  cy="15" r="2.8" fill="#0f172a"/>
+      <circle cx="5"  cy="15" r="1.2" fill="#94a3b8"/>
+      <circle cx="17" cy="15" r="2.8" fill="#0f172a"/>
+      <circle cx="17" cy="15" r="1.2" fill="#94a3b8"/>
+      <!-- headlight -->
+      <rect x="19" y="8" width="2" height="2" rx="0.5" fill="#fde68a" opacity="0.9"/>
+      <!-- tail light -->
+      <rect x="1" y="8" width="2" height="2" rx="0.5" fill="#f97316" opacity="0.9"/>
+    </g>`;
+
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="lineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%"   stop-color="#f97316" stop-opacity="0.9"/>
+        <stop offset="50%"  stop-color="#1a56db" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.9"/>
+      </linearGradient>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="2" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- thick glow shadow line -->
+    <path d="${d}"
+          fill="none"
+          stroke="#1a56db"
+          stroke-width="8"
+          stroke-linecap="round"
+          opacity="0.07"/>
+
+    <!-- main dashed path -->
+    <path id="travelPath"
+          d="${d}"
+          fill="none"
+          stroke="url(#lineGrad)"
+          stroke-width="2.5"
+          stroke-dasharray="10,14"
+          stroke-linecap="round"/>
+
+    <!-- car travelling along the path — rotate="0" keeps it always upright -->
+    <g filter="url(#glow)">
+      ${carSVG}
+      <animateMotion dur="35s" repeatCount="indefinite" rotate="0">
+        <mpath href="#travelPath"/>
+      </animateMotion>
+    </g>`;
+}
+
+/* scroll-reveal cards */
+const cards = document.querySelectorAll(".journey-card-z");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("show");
+  });
+}, { threshold: 0.15 });
+cards.forEach(card => observer.observe(card));
+
+window.addEventListener("load", drawPath);
+window.addEventListener("resize", drawPath);
+window.addEventListener("scroll", drawPath);
+setTimeout(drawPath, 500);
+setTimeout(drawPath, 1200);
+
+
+
+</script>
+
+
+
+<!-- ===== HOW WE DELIVER ===== -->
+<section class="process-section">
+  <div class="section-heading reveal">
+    <div class="tag">Our Approach</div>
+    <h2>How We <em>Deliver</em> Results</h2>
+    <p>A systematic 5-stage framework that ensures every project meets environmental targets and regulatory compliance.</p>
+  </div>
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="step-circle">🔬</div>
+      <div class="step-num">01</div>
+      <div class="step-title">Site Assessment</div>
+      <div class="step-desc">Detailed effluent characterisation — BOD, COD, TDS, heavy metals, microbial load. Lab analysis before any solution design.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">🧬</div>
+      <div class="step-num">02</div>
+      <div class="step-title">Bio-Culture Design</div>
+      <div class="step-desc">Custom microbial consortia engineered for the specific waste matrix — no off-the-shelf formulas.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">⚙️</div>
+      <div class="step-num">03</div>
+      <div class="step-title">System Integration</div>
+      <div class="step-desc">Seamless installation into existing ETP or STP infrastructure. Minimal downtime. Zero disruption to production.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">📊</div>
+      <div class="step-num">04</div>
+      <div class="step-title">Live Monitoring</div>
+      <div class="step-desc">Real-time sensor dashboards tracking treatment efficiency. Our team responds within 24 hours if parameters drift.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">✅</div>
+      <div class="step-num">05</div>
+      <div class="step-title">Compliance Sign-Off</div>
+      <div class="step-desc">Full documentation support for TNPCB, CPCB, and international environmental audits.</div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonial-section">
+  <div class="section-heading reveal">
+    <div class="tag">Client Voices</div>
+    <h2>What Our <em>Partners</em> Say</h2>
+    <p>Industry leaders and plant managers who've seen Reinerde's solutions transform their operations.</p>
+  </div>
+  <div class="testimonial-grid reveal">
+    <div class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Reinerde's bio-culture treatment brought our Tiruppur dyeing unit into TNPCB compliance within three months — something we'd struggled to achieve for over two years. The COD reduction was dramatic and the team's on-site support was exceptional.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">RK</div>
+        <div>
+          <div class="author-name">R. Krishnamurthy</div>
+          <div class="author-role">Operations Head</div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">The odour from our tannery ETP was a constant community complaint. After Reinerde's intervention, the sulphide smell dropped to almost nothing within weeks. The sludge handling has become far more efficient too — real savings on disposal.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">SA</div>
+        <div>
+          <div class="author-name">S. Anand Rao</div>
+          <div class="author-role">Plant Manager</div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">We were sceptical about biogas recovery from dairy effluent, but Reinerde's pilot results convinced us immediately. The full installation now covers nearly a third of our electricity needs. The ROI has been faster than projected.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">PM</div>
+        <div>
+          <div class="author-name">Priya Menon</div>
+          <div class="author-role">Sustainability Director</div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section reveal">
+  <div class="cta-inner">
+    <h2>Have a Wastewater Challenge?</h2>
+    <p>Whether you're facing compliance deadlines, odour complaints, or looking to turn your waste into an asset — Reinerde has a proven solution. Talk to our environmental engineers today.</p>
+    <div class="cta-btns">
+      <a href="map.html" class="btn-cta-primary">Get a Free Assessment</a>
+      <a href="about.html" class="btn-cta-secondary">Explore Products</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- =========================
+    FOOTER SECTION   
+============================== -->
+<footer class="main-footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>Reinerde</h3>
+      <p>
+        Committed to sustainable environmental solutions, wastewater
+        treatment, and building a greener future for tomorrow.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contact Info</h3>
+      <p>Email: info@reinerde.com</p>
+      <p>Phone: +91 98765 43210</p>
+      <p>Location: Chennai, India</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Follow Us</h3>
+        <div class="home_sci">
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-whatsapp'></i></a>
+        </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Reinerde | All Rights Reserved
+  </div>
+</footer>
+
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<script>
+window.addEventListener("scroll", function () {
+  const btn = document.querySelector(".go-top");
+  if (window.scrollY > 300) {
+    btn.classList.add("active");
+  } else {
+    btn.classList.remove("active");
+  }
+});
+</script>
+
+
+<!-- chat bot -->
+
+<!-- Chatbot Toggle Button -->
+<div class="chatbot-toggle" onclick="toggleChat()">
+  <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Bot">
+</div>
+
+<!-- Chatbot Box -->
+<div class="chatbot-box" id="chatbot">
+  <div class="chat-header">
+    Reinerde Assistant
+    <span onclick="toggleChat()">✖</span>
+  </div>
+
+  <div class="chat-body" id="chatBody">
+    <div class="bot-message">
+      Hello 👋 How can I help you?
+    </div>
+
+    <div class="options">
+      <button onclick="showAnswer('services')">Our Services</button>
+      <button onclick="showAnswer('wastewater')">Wastewater Treatment</button>
+      <button onclick="showAnswer('contact')">Contact Details</button>
+      <button onclick="showAnswer('about')">About Company</button>
+    </div>
+  </div>
+</div>
+<script>
+function toggleChat() {
+  const chatbot = document.getElementById("chatbot");
+  chatbot.style.display =
+    chatbot.style.display === "block" ? "none" : "block";
+}
+
+function showAnswer(type) {
+  const chatBody = document.getElementById("chatBody");
+
+  let answer = "";
+
+  if (type === "services") {
+    answer = "We provide Industrial Wastewater Treatment, Soil Plantation, and Environmental Restoration.";
+  }
+
+  if (type === "wastewater") {
+    answer = "Our wastewater systems help textile industries recycle and purify water efficiently.";
+  }
+
+  if (type === "contact") {
+    answer = "Contact us at info@reinerde.com or call +91-XXXXXXXXXX.";
+  }
+
+  if (type === "about") {
+    answer = "Reinerde Technology Pvt Ltd focuses on sustainable environmental solutions.";
+  }
+
+  const reply = document.createElement("div");
+  reply.classList.add("bot-message");
+  reply.innerText = answer;
+
+  chatBody.appendChild(reply);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  reveals.forEach(reveal => {
+    observer.observe(reveal);
+  });
+
+});
+</script>
+
+<!-- Admin Login Modal -->
+<div id="adminModal" class="admin-modal">
+  <div class="admin-content">
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+    <h3>Admin Login</h3>
+
+    <input type="text" id="adminUser" placeholder="Username">
+    <input type="password" id="adminPass" placeholder="Password">
+
+    <button onclick="loginAdmin()">Login</button>
+  </div>
+</div>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <img src="images/logo.png" alt="Logo" class="preloader-logo">
+</div>
+
+<script>
+window.addEventListener("load", function () {
+  setTimeout(() => {
+    document.getElementById("preloader").style.opacity = "0";
+    setTimeout(() => {
+      document.getElementById("preloader").style.display = "none";
+    }, 500);
+  }, 2400); // 1.2s × 2 = 2.4s
+});
+</script>
+<!-- =========================
+     SCRIPTS   
+============================== -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>

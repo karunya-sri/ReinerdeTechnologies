@@ -1,0 +1,2380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+New Event
+http://www.templatemo.com/tm-486-new-event
+-->
+<title>Reinerde</title>
+<meta name="description" content="">
+<meta name="author" content="">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/owl.theme.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<!-- Main css -->
+<link rel="stylesheet" href="css/style.css">
+ <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- Google Font -->
+<link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'>
+<style>
+.hero {
+background: url("./images/banner4.png") center/cover no-repeat;
+
+      height: 600px;
+      position: relative;
+      display: flex;
+      align-items: center;
+}
+
+
+
+/* ================= SCROLL ANIMATION ================= */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:all 0.8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:768px){
+
+
+}
+/* ================= SCROLL ANIMATION ================= */
+/* ===============================
+   INITIAL HIDDEN STATE
+================================= */
+
+/* =====================================
+   SCROLL ANIMATION (CLEAN VERSION)
+===================================== */
+
+/* Initial hidden state */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.go-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+
+  background: linear-gradient(135deg, #eaf2f5, #012b5e);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  font-size: 22px;
+  text-decoration: none;
+
+  box-shadow: 0 10px 25px rgba(30, 10, 10, 0.4);
+  transition: all 0.3s ease;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Show when active */
+.go-top.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hover effect */
+.go-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(76, 76, 77, 0.7);
+}
+
+/* Icon smooth */
+.go-top i {
+  transition: 0.3s ease;
+}
+
+.go-top:hover i {
+  transform: translateY(-3px);
+}
+/* Floating Bot Button */
+.chatbot-toggle {
+  position: fixed;
+  bottom: 95px;
+  right: 25px;
+  width: 65px;
+  height: 65px;
+  right: 20px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 114, 255, 0.5);
+  transition: 0.3s ease;
+}
+
+.chatbot-toggle:hover {
+  transform: scale(1.1);
+}
+
+.chatbot-toggle img {
+  width: 35px;
+  height: 35px;
+}
+
+/* Chatbot Box */
+.chatbot-box {
+  position: fixed;
+  bottom: 110px;
+  right: 25px;
+  width: 320px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 20px 50px rgba(0, 114, 255, 0.3);
+  overflow: hidden;
+  display: none;
+  animation: slideUp 0.4s ease;
+}
+
+/* Header */
+.chat-header {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Body */
+.chat-body {
+  padding: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.bot-message {
+  background: #e6f4ff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Option Buttons */
+.options button {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #0072ff;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.options button:hover {
+  background: #0056cc;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* SECTION */
+.overview-section {
+  padding: 80px 10%;
+  background: linear-gradient(to right, #f8fbff, #eef5ff);
+}
+
+/* TITLE */
+.section-title {
+  text-align: center;
+  font-size: 38px;
+  color: #012b5e;
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+
+/* LAYOUT */
+.overview-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* TEXT */
+.overview-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.overview-text p {
+  font-size: 17px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #0072ff;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #0056cc;
+  transform: translateY(-3px);
+}
+
+/* IMAGE */
+.overview-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.overview-image img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: 0.4s;
+}
+
+/* IMAGE HOVER EFFECT */
+.overview-image img:hover {
+  transform: scale(1.05);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .overview-content {
+    flex-direction: column;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+}
+
+/* SECTION */
+/* SECTION */
+
+
+
+.problem-section {
+    padding: 100px 20px;
+    background: linear-gradient(to right, #f0f7ff, #e6f2ff);
+}
+
+/* TEXT */
+.problem-text h2 {
+    font-size: 42px;
+    color: #012b5e;
+    margin-bottom: 25px;
+    animation: fadeLeft 1s ease;
+}
+
+.problem-highlight {
+    font-size: 20px;
+    font-weight: 600;
+    color: #012b5e;
+    margin-bottom: 20px;
+}
+
+.problem-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.problem-images {
+  padding-top: 90px;
+}
+
+.problem-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-slider {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+
+
+
+/* ANIMATIONS */
+@keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(-60px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+    from { opacity: 0; transform: translateX(60px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .problem-text h2 {
+        font-size: 30px;
+    }
+
+    .video-box iframe {
+        height: 220px;
+    }
+}
+
+
+
+/* ===== LOCATION SECTION ===== */
+.location-section {
+    padding: 80px 20px;
+    background: #f4f9ff;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    color: #012b5e;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #555;
+    margin-bottom: 50px;
+}
+
+/* Layout */
+.location-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Map */
+.map-box {
+    flex: 1;
+    min-width: 350px;
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.map-box iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Info Box */
+.location-info {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.location-info h3 {
+    color: #012b5e;
+    margin-bottom: 15px;
+}
+
+.contact-details p {
+    margin: 8px 0;
+}
+
+/* Button */
+.map-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background: linear-gradient(45deg, #0b5ed7, #4dabf7);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.map-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+/* ===== CONTACT SECTION ===== */
+/* ===== SECTION BACKGROUND ===== */
+
+.contact-section {
+    background: url("./images/contactas.png") center/cover no-repeat;
+    padding: 120px 20px;
+    position: relative;
+}
+
+/* Dark overlay */
+.contact-overlay {
+    background: rgba(0, 40, 80, 0.75);
+    padding: 80px 30px;
+    border-radius: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Titles */
+.contact-title {
+    text-align: center;
+    color: #fff;
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.contact-subtitle {
+    text-align: center;
+    color: #525253;
+    margin-bottom: 60px;
+}
+
+/* Layout */
+.contact-wrapper {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* LEFT INFO */
+.contact-info {
+    flex: 1;
+    color: white;
+}
+
+.contact-info h3 {
+    margin-bottom: 20px;
+}
+
+.info-box {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* FORM */
+.contact-form {
+    flex: 1;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.contact-form button {
+    background: #0b5ed7;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* ===== ANIMATIONS ===== */
+
+.animate-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: slideLeft 1s ease forwards;
+}
+
+.animate-right {
+    opacity: 0;
+    transform: translateX(100px);
+    animation: slideRight 1s ease forwards;
+}
+
+@keyframes slideLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.contact-section p{
+color: white;
+}
+
+/* ===== FAQ SECTION ===== */
+
+.faq-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #eaf4ff, #f7fbff);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Title */
+.faq-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.faq-title h2 {
+    font-size: 42px;
+    color: #012b5e;
+    margin-bottom: 10px;
+    animation: fadeDown 1s ease;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.faq-title p {
+    color: #555;
+    font-size: 18px;
+}
+
+/* FAQ Wrapper */
+.faq-wrapper {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* FAQ Card */
+.faq-item {
+    margin-bottom: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Question Button */
+.faq-question {
+    width: 100%;
+    padding: 22px;
+    text-align: left;
+    border: none;
+    outline: none;
+    background: linear-gradient(45deg, #0b5ed7, #4da3ff);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Arrow Icon */
+.faq-question::after {
+    content: "+";
+    position: absolute;
+    right: 25px;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+.faq-question.active::after {
+    content: "-";
+}
+
+/* Answer */
+.faq-answer {
+    display: none;
+    padding: 25px;
+    background: #fff;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.7;
+    animation: fadeIn 0.5s ease;
+}
+
+/* ===== Animations ===== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 768px) {
+    .faq-title h2 {
+        font-size: 30px;
+    }
+
+    .faq-question {
+        font-size: 16px;
+        padding: 18px;
+    }
+}
+
+
+
+
+.main-footer {
+     background: linear-gradient(900deg, #6e98b2, #73d3f3, #6e98b2);
+    color: rgb(7, 7, 7);
+    padding: 60px 0 20px;
+    animation: fadeUp 1.2s ease;
+}
+
+.footer-container {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+.footer-col h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    border-bottom: 2px solid #66ccff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-col p {
+    font-size: 14px;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin: 10px 0;
+}
+
+.footer-col ul li a {
+    color: rgb(14, 14, 14);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #66ccff;
+    padding-left: 8px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 20px;
+    color: rgb(8, 8, 8);
+    transition: 0.4s;
+}
+
+.social-icons a:hover {
+    color: #66ccff;
+    transform: translateY(-5px) scale(1.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+.home_sci a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: 2px solid rgb(3, 3, 3);
+    font-size: 20px;
+    color: rgb(6, 6, 6) ;
+    border-radius: 50%;
+    text-decoration: none;
+    margin: 30px 15px 30px 0;
+    transition: .5s ease;
+     opacity: 0;
+    animation: slideLeft .5s ease forwards;
+   animation-delay: calc(.1s * var(--i));
+    
+}
+
+.home_sci a:hover{
+    background-color: rgb(246, 246, 246);
+    color: black;
+    box-shadow: 0 0 20px rgb(6, 6, 6);
+}
+/* Animation */
+@keyframes fadeUp {
+    from {
+        transform: translateY(60px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+ .logoname {
+
+      height: auto;
+      max-height: 130px;
+      width: auto;
+      margin-left: -200px;    
+      margin-top: -35px;            /* keep your original offset */
+      transition: transform 0.5s ease, filter 0.3s;
+      filter: drop-shadow(0 4px 6px #061a28);
+      animation: floatLogo 4s infinite ease-in-out;  /* gentle floating */
+    }
+
+    /* logo floating animation */
+    @keyframes floatLogo {
+      0% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-4px) scale(1.02); filter: drop-shadow(0 8px 12px #f9c74f80); }
+      100% { transform: translateY(0px) scale(1); }
+    }
+
+    /* extra hover effect for logo */
+    .logoname:hover {
+      animation: none;                    /* pause float on hover */
+      transform: scale(1.08) rotate(-1deg);
+      filter: drop-shadow(0 0 10px #f9c74f);
+    }
+
+
+/* ================= SERVICES ================= */
+.services{
+    margin-top:-80px;
+    position:relative;
+    z-index:5;
+}
+
+.service-box{
+    background:#ffffff;
+    padding:35px 20px;
+    text-align:center;
+    transition:0.4s;
+    box-shadow:30px 20px 20px 10px rgba(0,0,0,0.08);
+    
+    margin: -15px;
+}
+
+.service-box h5{
+    font-weight:600;
+    margin-top:10px;
+}
+
+.service-box p{
+    font-size:14px;
+}
+
+.service-box:hover{
+    background:#7FA9C1;
+    color:white;
+    transform:translateY(-10px);
+}
+
+.service-box:hover p{
+    color:white;
+}
+
+.service-active{
+    background:#7FA9C1;
+    color:white;
+    transform:scale(1.05);
+}
+
+.icon{
+    font-size:35px;
+}
+
+#tsparticles {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  pointer-events: none;
+}
+.quote-text{
+  position: relative;
+  color: #ffffff;
+  font-size: 26px;
+  max-width: 600px;
+  line-height: 0.6;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  margin-top: 50px;
+  left:60px;
+
+}
+
+.line{
+  display: block;
+}
+
+.quote-iconpp{
+  font-size: 70px;
+  color: #FFD700;
+  position: absolute;
+  left: -60px;
+ top: -20px;
+}
+
+.quote-icon.end{
+
+    font-size: 70px;
+  color: #FFD700;
+  position: absolute;
+  right: 70px;
+  top: 50px;
+}
+
+.highlight{
+  font-weight: bold;
+  color: #FFD700;
+  margin-top: 50px;
+  margin-left: -50px;
+}
+
+
+
+
+/* Admin Button */
+.admin-btn {
+  background: linear-gradient(45deg, black,rgb(34, 34, 34));
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-right: -0px;
+}
+
+.admin-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Modal Background */
+.admin-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+/* Modal Box */
+.admin-content {
+  background: white;
+  width: 300px;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  animation: slideUp 0.4s ease;
+}
+
+/* Inputs */
+.admin-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Close Button */
+.close-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Login Button */
+.admin-content button {
+  background: #0b5ed7;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.video-container {
+  position: relative;
+  height: 450px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* VIDEO */
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+/* DARK OVERLAY */
+.video-container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* TEXT CONTENT */
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+/* STAR */
+.star {
+  position: absolute;
+  top: -20px;
+  left: 58%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  color: #FFD700;
+  animation: floatStar 3s ease-in-out infinite;
+}
+
+
+/* BUBBLES */
+.bubble {
+  position: absolute;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: floatBubble 4s ease-in-out infinite;
+}
+
+.b1 {
+  width: 12px;
+  height: 12px;
+  top: 1px;
+  right: 190px;
+}
+
+.b2 {
+  width: 18px;
+  height: 18px;
+  top: 5px;
+  right: 140px;
+}
+
+.b3 {
+  width: 8px;
+  height: 8px;
+  top: 60px;
+  right: 190px;
+}
+
+/* ANIMATIONS */
+@keyframes floatStar {
+  0% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-8px); }
+  100% { transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes floatBubble {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.video-container {
+  position: relative;
+  height: 450px;
+  width: 100%;
+  overflow: visible; /* IMPORTANT */
+}
+
+/* Card Container (FIXED) */
+.card-container {
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end; /* IMPORTANT for uneven heights */
+  gap: 5px;
+  z-index: 3;
+}
+
+/* Base card */
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  transition: 0.4s ease;
+}
+
+/* Different sizes */
+.card:nth-child(1) {
+  width: 200px;
+  height: 130px;
+}
+
+.card:nth-child(2) {
+  width: 240px;
+  height: 170px; /* BIG one (center focus) */
+  transform: translateY(-20px);
+}
+
+.card:nth-child(3) {
+  width: 180px;
+  height: 120px;
+}
+
+.card:nth-child(4) {
+  width: 220px;
+  height: 150px;
+  transform: translateY(-10px);
+}
+
+/* Image fit */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hover */
+.card:hover {
+  transform: translateY(-20px) scale(1.05);
+}
+
+
+  .premium-section {
+  position: relative;
+  padding: 120px 10%;
+  margin-top: 160px;
+  overflow: hidden;
+}
+
+/* Glow Background */
+.premium-section::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0,150,255,0.2), transparent);
+  top: -100px;
+  left: -100px;
+  animation: float 10s infinite alternate;
+}
+
+@keyframes float {
+  from { transform: translateY(0px); }
+  to { transform: translateY(40px); }
+}
+
+.premium-content {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* TITLE ANIMATION */
+.main-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #012b5e;
+}
+
+.main-title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Animate only when active */
+.main-title.animate span {
+  animation: fadeUp 0.6s forwards;
+}
+
+.main-title.animate span:nth-child(1) { animation-delay: 0.2s; }
+.main-title.animate span:nth-child(2) { animation-delay: 0.5s; }
+.main-title.animate span:nth-child(3) { animation-delay: 0.8s; }
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SUBTITLE */
+.highlight-line {
+  font-size: 18px;
+  margin: 20px auto 50px;
+  color: #555;
+  max-width: 800px;
+}
+
+.highlight-line span {
+  color: #facd18;
+  font-weight: 600;
+}
+
+/* GRID */
+.premium-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* CARDS */
+.premium-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: 0.4s;
+}
+
+.premium-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* TEXT */
+.premium-card p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.premium-extra {
+  margin-top: 40px;
+  font-size: 17px;
+  line-height: 1.8;
+}
+.accent {
+  color: #04bc1a;
+  font-weight: 600;
+}
+
+/* BOTTOM LINE */
+.premium-bottom {
+  margin-top: 50px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* SCROLL ANIMATION */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: 0.6s;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: 0.6s;
+}
+
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active {
+  opacity: 1;
+  transform: translate(0);
+}
+
+
+.heroo-section {
+  padding: 60px 20px;
+ 
+  font-family: Arial, sans-serif;
+}
+
+.containerr {
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+/* LEFT SIDE */
+.heroo-left {
+  position: relative;
+  flex: 1;
+}
+
+.image-wrapper {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+}
+
+/* Play button */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Quote card */
+.quotee-card {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.quotee-card p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.quotee-card span {
+  font-size: 12px;
+  color: gray;
+}
+
+/* RIGHT SIDE */
+.heroo-right {
+  width: 800px;
+  flex: 1;
+  margin-left: 50px;
+}
+
+.heroo-right h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.heroo-right .description {
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+blockquote {
+  background: #fafafa;
+  padding: 15px 20px;
+  border-left: 4px solid #ccc;
+  font-style: italic;
+  color: #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .hero-right h1 {
+    font-size: 28px;
+  }
+}
+
+
+
+.hhero-section {
+  background: #f5f5f5;
+  padding: 120px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hhero-content {
+  max-width: 700px;
+  position: relative;
+  z-index: 2;
+}
+
+.hhero-content h1 {
+  font-size: 36px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.hhero-content p {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.6;
+}
+
+/* Floating symbols container */
+.symbols span {
+  position: absolute;
+  color: #444;
+  opacity: 0.7;
+  font-size: 18px;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Different positions + delays */
+.symbols span:nth-child(1) {
+  top: 20%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.symbols span:nth-child(2) {
+  top: 70%;
+  left: 20%;
+  animation-delay: 1s;
+}
+
+.symbols span:nth-child(3) {
+  top: 30%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.symbols span:nth-child(4) {
+  bottom: 20%;
+  right: 25%;
+  animation-delay: 3s;
+}
+
+.symbols span:nth-child(5) {
+  top: 50%;
+  left: 80%;
+  animation-delay: 4s;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.features-section {
+  padding: 90px 20px;
+  text-align: center;
+}
+
+/* Layout */
+.features-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Each feature */
+.feature {
+  flex: 1;
+  min-width: 260px;
+}
+
+
+/* Title */
+.feature h3 {
+  font-size: 20px;
+  color: #111827;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Text */
+.feature p {
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 260px;
+  margin: auto;
+}
+
+/* Hover */
+.feature:hover .icon-circle {
+  transform: translateY(-6px);
+}
+
+.mv-section {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* LEFT */
+.left-panell {
+  width: 15%;
+  background: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-panell h1 {
+  transform: rotate(-90deg);
+  font-size: 55px;
+  color: #0b5d2a;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+/* CENTER IMAGE */
+.center-panell {
+  width: 35%;
+  background: url("images/banner4.png") center/cover no-repeat;
+  opacity: 0.8;
+  position: relative;
+}
+
+.center-panell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 90, 0, 0.75);
+}
+
+/* RIGHT */
+.right-panell{
+  width: 50%;
+  
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ITEM */
+.mv-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+/* ICON CIRCLE */
+.iconn {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -120px;
+  border: 2px solid white;
+    position: absolute;
+  
+  z-index: 10; 
+}
+
+/* SVG ICON STYLE */
+.iconn svg {
+  width: 50px;
+  height: 50px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* COLORS */
+.iconn.vision {
+  background: #f5a623; /* orange */
+    width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.iconn.mission {
+  background: #0b5d2a; /* green */
+    width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.iconn.goals {
+  background: #3498db; /* blue */
+}
+
+/* TEXT */
+.contentt h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.contentt p {
+  color: #555;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.contentt ul {
+  margin-top: 5px;
+  padding-left: 18px;
+}
+
+.contentt ul li {
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+  .mv-sectionn {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left-panell {
+    display: none;
+  }
+
+  .center-panell{
+    width: 100%;
+    height: 250px;
+  }
+
+  .right-panell {
+    width: 100%;
+    padding: 30px;
+  }
+}
+</style>
+</head>
+<body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
+<div id="tsparticles"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script>
+tsParticles.load("tsparticles", {
+  fullScreen: { enable: false },
+  particles: {
+    number: { value: 15 },
+    color: { value: "#FFD700" },
+    size: { value: { min: 1, max: 7 } },
+    move: {
+      enable: true,
+      speed: 1.5,
+      outModes: { default: "out" }
+    },
+    opacity: { value: 0.9 }
+  },
+  interactivity: {
+    events: {
+      onHover: { enable: true, mode: "bubble" }
+    },
+    modes: {
+      bubble: {
+        distance: 100,
+        size: 12,
+        duration: 0.3,
+        color: "#0066FF",
+        opacity: 1
+      }
+    }
+  },
+  detectRetina: true
+});
+</script>
+
+
+<!-- =========================
+     NAVIGATION LINKS     
+============================== -->
+<div class="navbar navbar-fixed-top custom-navbar" role="navigation">
+	
+	<div class="container">
+		
+
+		<!-- navbar header -->
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			
+		</div>
+
+		<div class="collapse navbar-collapse">
+     <div>
+              <img src="K:\templatemo_486_new_event\templatemo_486_new_event\images\logo1.png" 
+             alt="BioCulture logo" 
+             class="logoname" 
+             style="margin-left: -200px;">
+               <div class="tagline-container">
+  <div class="tagline-text">
+    Together for Tomorrow
+  </div>
+</div>
+</div>
+			<ul class="nav navbar-nav navbar-right" style="margin-top: -50px;">
+				<li class="nav-item"><a href="index.html" class="smoothScroll">Home<span class="text-white">   |</span></a></li>
+				<li class="nav-item"><a href="about.html" class="smoothScroll">About us<span class="text-white">   |</span></a></li>
+				<li class="nav-item"><a href="product.html" class="smoothScroll">Products<span class="text-white">   |</span></a></li>
+				<li class="nav-item"><a href="project.html" class="smoothScroll">Projects<span class="text-white">   |</span></a></li>
+				<li class="nav-item"><a href="team.html" class="smoothScroll">Team<span class="text-white">   |</span></a></li>
+				<li class="nav-item"><a href="map.html" class="smoothScroll">Contact<span class="text-white">   |</span></a></li>
+        
+		    <!-- Headphone Icon -->
+        <li class="nav-item ms-3">
+            <a href="#" class="nav-link p-0">
+                <i class="bi bi-headset"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+        <button class="admin-btn" onclick="openLogin()">Admin Login</button>
+        </li>
+        <script>
+function openLogin() {
+  document.getElementById("adminModal").style.display = "block";
+}
+
+function closeLogin() {
+  document.getElementById("adminModal").style.display = "none";
+}
+
+function loginAdmin() {
+  const user = document.getElementById("adminUser").value;
+  const pass = document.getElementById("adminPass").value;
+
+  // Simple demo login (you can connect backend later)
+  if (user === "admin" && pass === "1234") {
+    alert("Login Successful!");
+    window.location.href = "admin-dashboard.php"; // redirect page
+  } else {
+    alert("Invalid Credentials");
+  }
+}
+</script>
+			</ul>
+
+		</div>
+
+	</div>
+</div>
+<script>
+window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".custom-navbar");
+
+    if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+</script>
+
+
+<div class="video-container">
+
+  <!-- Background Video -->
+  <video autoplay loop muted playsinline class="bg-video">
+    <source src="images/rpv.mp4" type="video/mp4">
+  </video>
+
+  <!-- Overlay Content -->
+  <div class="video-overlay">
+
+    <!-- Decorations -->
+    <span class="star">✦</span>
+
+    <span class="bubble b1"></span>
+    <span class="bubble b2"></span>
+    <span class="bubble b3"></span>
+
+    <h1>About us</h1>
+    <p style="color: white;">
+      Driving sustainable innovation through advanced environmental engineering and smart solutions.
+    </p>
+
+  </div>
+  <!-- Cards -->
+  <div class="card-container">
+
+    <div class="card">
+      <img src="images\sight\Perundurai1.jpeg" alt="" >
+    </div>
+
+    <div class="card">
+      <img src="images\sight\Perundurai2.jpeg" alt="" >
+    </div>
+
+    <div class="card">
+      <img src="images\sight\Perundurai3.jpeg" alt="" >
+    </div>
+
+    <div class="card">
+      <img src="images\sight\Perundurai4.jpeg" alt="" >
+    </div>
+
+  </div>
+</div>
+
+ <section class="premium-section">
+  <div class="overlay"></div>
+
+  <div class="premium-content">
+
+    <h2 class="main-title">
+      <span>Engineering</span>
+      <span>a Cleaner</span>
+      <span>Tomorrow</span>
+    </h2>
+
+    <h3 class="highlight-line">
+      Transforming industries through <span>smart sustainability</span> and 
+      <span>intelligent environmental solutions</span>.
+    </h3>
+
+<div class="premium-grid">
+
+  <!-- LEFT -->
+  <div class="premium-card reveal-left">
+    <p>
+      <strong>Reinerde Technologies</strong> is an emerging environmental engineering company 
+      based in <span class="accent">Chennai</span>, founded in 2020 at 
+      <span class="accent">IIT Madras Research Park</span>.
+    </p>
+
+    <p>
+      We deliver <span class="accent">innovative R&D solutions</span> to address modern environmental 
+      challenges—helping industries move toward a <strong>cleaner future</strong>.
+    </p>
+
+    <p>
+      At <span class="blue">Reinerde Technologies</span>, we believe that 
+      <span class="green">innovation</span> and <span class="yellow">sustainability</span> 
+      must go hand in hand. Our team continuously explores advanced technologies 
+      to develop solutions that are not only effective but also 
+      <strong>environmentally responsible</strong>.
+    </p>
+
+    <p>
+      By combining <span class="blue">engineering excellence</span> with 
+      <span class="green">real-world insights</span>, we help industries transition 
+      toward <span class="yellow">smarter and cleaner operations</span>.
+    </p>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="premium-card reveal-right">
+    <p>
+      Our expertise includes <span class="accent">water treatment</span>, 
+      <span class="accent">waste management</span>, and advanced environmental solutions.
+    </p>
+
+    <p>
+      We design <strong>efficient and sustainable systems</strong> that reduce environmental impact 
+      while improving industrial performance.
+    </p>
+
+    <p>
+      Our approach focuses on delivering 
+      <span class="green">long-term value</span> through 
+      <span class="blue">efficient system design</span> and 
+      <span class="yellow">resource optimization</span>.
+    </p>
+
+    <p>
+      We work closely with clients to understand their unique challenges, 
+      ensuring that every solution is 
+      <span class="blue">custom-built</span>, 
+      <span class="green">scalable</span>, and 
+      <span class="yellow">future-ready</span>.
+    </p>
+  </div>
+
+</div>
+<div class="premium-extra reveal">
+  <p>
+    🚀 With a strong foundation in <span class="blue">research</span>, 
+    a passion for <span class="green">sustainability</span>, and a commitment to 
+    <span class="yellow">innovation</span>, we aim to become a 
+    <strong>trusted partner</strong> for industries seeking transformation.
+  </p>
+
+  <p>
+    Our mission is simple — to create solutions that not only solve today’s 
+    challenges but also build a <span class="green">better tomorrow</span>.
+  </p>
+</div>
+    <!-- BOTTOM HIGHLIGHT -->
+    <div class="premium-bottom reveal">
+      <p>
+        ♻️ From <strong>concept → design → execution</strong>, we build solutions that are 
+        <span class="accent">cost-effective</span>, 
+        <span class="accent">scalable</span>, and 
+        <span class="accent">future-ready</span>.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="mv-section">
+
+  <!-- LEFT VERTICAL TEXT -->
+  <div class="left-panell">
+    <h1>OUR VISION</h1>
+  </div>
+
+  <!-- CENTER IMAGE -->
+  <div class="center-panell"></div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="right-panell">
+
+    <!-- VISION -->
+    <div class="mv-item">
+      <div class="iconn vision" >
+        <!-- Eye SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+</svg>
+      </div>
+      <div class="contentt">
+        <h2>Vision</h2>
+        <p>
+  To become a <strong>global leader</strong> in environmental, water, and carbon 
+  management solutions by driving innovation in <strong>emission reduction</strong>, 
+  <strong>clean energy</strong>, and <strong>sustainable engineering</strong>.
+</p>
+
+      </div>
+    </div>
+
+    <!-- MISSION -->
+    <div class="mv-item">
+      <div class="iconn mission">
+        <!-- Target SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-rocket-takeoff-fill" viewBox="0 0 16 16">
+  <path d="M12.17 9.53c2.307-2.592 3.278-4.684 3.641-6.218.21-.887.214-1.58.16-2.065a3.6 3.6 0 0 0-.108-.563 2 2 0 0 0-.078-.23V.453c-.073-.164-.168-.234-.352-.295a2 2 0 0 0-.16-.045 4 4 0 0 0-.57-.093c-.49-.044-1.19-.03-2.08.188-1.536.374-3.618 1.343-6.161 3.604l-2.4.238h-.006a2.55 2.55 0 0 0-1.524.734L.15 7.17a.512.512 0 0 0 .433.868l1.896-.271c.28-.04.592.013.955.132.232.076.437.16.655.248l.203.083c.196.816.66 1.58 1.275 2.195.613.614 1.376 1.08 2.191 1.277l.082.202c.089.218.173.424.249.657.118.363.172.676.132.956l-.271 1.9a.512.512 0 0 0 .867.433l2.382-2.386c.41-.41.668-.949.732-1.526zm.11-3.699c-.797.8-1.93.961-2.528.362-.598-.6-.436-1.733.361-2.532.798-.799 1.93-.96 2.528-.361s.437 1.732-.36 2.531Z"/>
+  <path d="M5.205 10.787a7.6 7.6 0 0 0 1.804 1.352c-1.118 1.007-4.929 2.028-5.054 1.903-.126-.127.737-4.189 1.839-5.18.346.69.837 1.35 1.411 1.925"/>
+</svg>
+      </div>
+      <div class="contentt">
+        <h2>Mission</h2>
+      <p>
+  To deliver <strong>innovative, sustainable, and cost-effective</strong> environmental 
+  and advanced R&D solutions across wastewater treatment, waste management, 
+  and carbon management technologies.
+</p>
+
+<p>
+  We are committed to reducing environmental impact through 
+  <strong>carbon capture</strong>, <strong>gas purification</strong>, 
+  <strong>proprietary solutions</strong>, and environmental auditing—helping 
+  industries achieve <strong>efficiency</strong>, <strong>compliance</strong>, 
+  and <strong>long-term sustainability</strong>.
+</p>
+      </div>
+    </div>
+
+    <!-- GOALS -->
+    <div class="mv-item">
+      <div class="iconn goals">
+        <!-- Flag SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-reception-4" viewBox="0 0 16 16">
+  <path d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5z"/>
+</svg>
+      </div>
+      <div class="contentt">
+        <h2>Goals</h2>
+        <ul>
+          <li>Expand across India and enter global markets</li>
+  <li>Develop next-generation environmental technologies</li>
+  <li>Strengthen research and innovation capabilities</li>
+  <li>Collaborate with industries and government bodies</li>
+  <li>Promote circular economy and resource optimization</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+<section class="heroo-section">
+  <div class="containerr">
+    
+    <section class="heroo-section">
+  <div class="containerr">
+
+```
+<!-- Left Side (Image + Card) -->
+<div class="heroo-left">
+  <div class="image-wrapper">
+    <img src="images\sight\Perundurai7.jpeg" alt="Reinerde Technologies">
+    <div class="play-button">▶</div>
+  </div>
+
+  <div class="quotee-card">
+    <p>"Engineering a cleaner, greener future"</p>
+    <span>Reinerde Technologies</span>
+  </div>
+</div>
+
+<!-- Right Side (Text Content) -->
+<div class="heroo-right" >
+  <h1>Sustainable solutions<br>for modern industries</h1>
+
+  <p class="description">
+    Reinerde Technologies Private Limited is an environmental engineering 
+    and advanced R&D solutions company based in Chennai, established in 2020 
+    at IIT Madras Research Park. We specialize in water and wastewater treatment, 
+    carbon capture and utilization, waste management, and environmental consulting— 
+    helping industries adopt efficient and eco-friendly practices.
+  </p>
+
+  <blockquote>
+    "We combine innovation, engineering expertise, and sustainability to deliver 
+    cost-effective solutions that reduce environmental impact and support industries 
+    in achieving compliance and long-term growth."
+  </blockquote>
+</div>
+```
+
+  </div>
+</section>
+
+  </div>
+</section>
+
+
+
+
+<section class="hhero-section">
+  <div class="symbols">
+    <span >✧</span>
+    <span >✦</span>
+    <span >✦</span>
+    <span>•</span>
+    <span >✧</span>
+  </div>
+
+  <div class="hhero-content">
+<h1>Driving Innovation in Water,<br>Carbon & Environmental Solutions</h1>
+    <p>
+      Reinerde Technologies delivers advanced solutions in water treatment, carbon capture,
+      and environmental engineering—helping industries reduce impact, improve efficiency,
+      and build a cleaner, greener future.
+    </p>
+  </div>
+</section>
+
+
+
+
+<section class="features-section">
+  <div class="features-container">
+
+    <!-- Professional Team -->
+    <div class="feature">
+      <div ><img src="images\sy.png" alt="" style="height: 50px;"></div>
+      <h3>Professional Team</h3>
+      <p>
+        Our experienced experts deliver high-quality engineering and environmental
+        solutions with precision, innovation, and industry expertise.
+      </p>
+    </div>
+
+    <!-- Target Oriented -->
+    <div class="feature">
+      <div ><img src="images\sy1.png" alt="" style="height: 50px;"></div>
+      <h3>Target Oriented</h3>
+      <p>
+        We focus on achieving measurable results through strategic planning,
+        efficient execution, and performance-driven solutions.
+      </p>
+    </div>
+
+    <!-- Success Guarantee -->
+    <div class="feature">
+      <div ><img src="images\sy2.png" alt="" style="height: 50px;"></div>
+      <h3>Success Guarantee</h3>
+      <p>
+        Our solutions are designed to ensure reliability, compliance, and
+        long-term success for every project we deliver.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================
+    FOOTER SECTION   
+============================== -->
+<footer class="main-footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>Reinerde</h3>
+      <p>
+        Committed to sustainable environmental solutions, wastewater
+        treatment, and building a greener future for tomorrow.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contact Info</h3>
+      <p>Email: info@reinerde.com</p>
+      <p>Phone: +91 98765 43210</p>
+      <p>Location: Chennai, India</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Follow Us</h3>
+        <div class="home_sci">
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-whatsapp'></i></a>
+        </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Reinerde | All Rights Reserved
+  </div>
+</footer>
+
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<script>
+window.addEventListener("scroll", function () {
+  const btn = document.querySelector(".go-top");
+  if (window.scrollY > 300) {
+    btn.classList.add("active");
+  } else {
+    btn.classList.remove("active");
+  }
+});
+</script>
+
+
+<!-- chat bot -->
+
+<!-- Chatbot Toggle Button -->
+<div class="chatbot-toggle" onclick="toggleChat()">
+  <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Bot">
+</div>
+
+<!-- Chatbot Box -->
+<div class="chatbot-box" id="chatbot">
+  <div class="chat-header">
+    Reinerde Assistant
+    <span onclick="toggleChat()">✖</span>
+  </div>
+
+  <div class="chat-body" id="chatBody">
+    <div class="bot-message">
+      Hello 👋 How can I help you?
+    </div>
+
+    <div class="options">
+      <button onclick="showAnswer('services')">Our Services</button>
+      <button onclick="showAnswer('wastewater')">Wastewater Treatment</button>
+      <button onclick="showAnswer('contact')">Contact Details</button>
+      <button onclick="showAnswer('about')">About Company</button>
+    </div>
+  </div>
+</div>
+<script>
+function toggleChat() {
+  const chatbot = document.getElementById("chatbot");
+  chatbot.style.display =
+    chatbot.style.display === "block" ? "none" : "block";
+}
+
+function showAnswer(type) {
+  const chatBody = document.getElementById("chatBody");
+
+  let answer = "";
+
+  if (type === "services") {
+    answer = "We provide Industrial Wastewater Treatment, Soil Plantation, and Environmental Restoration.";
+  }
+
+  if (type === "wastewater") {
+    answer = "Our wastewater systems help textile industries recycle and purify water efficiently.";
+  }
+
+  if (type === "contact") {
+    answer = "Contact us at info@reinerde.com or call +91-XXXXXXXXXX.";
+  }
+
+  if (type === "about") {
+    answer = "Reinerde Technology Pvt Ltd focuses on sustainable environmental solutions.";
+  }
+
+  const reply = document.createElement("div");
+  reply.classList.add("bot-message");
+  reply.innerText = answer;
+
+  chatBody.appendChild(reply);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  reveals.forEach(reveal => {
+    observer.observe(reveal);
+  });
+
+});
+</script>
+
+<!-- Admin Login Modal -->
+<div id="adminModal" class="admin-modal">
+  <div class="admin-content">
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+    <h3>Admin Login</h3>
+
+    <input type="text" id="adminUser" placeholder="Username">
+    <input type="password" id="adminPass" placeholder="Password">
+
+    <button onclick="loginAdmin()">Login</button>
+  </div>
+</div>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <img src="images/logo.png" alt="Logo" class="preloader-logo">
+</div>
+
+<script>
+window.addEventListener("load", function () {
+  setTimeout(() => {
+    document.getElementById("preloader").style.opacity = "0";
+    setTimeout(() => {
+      document.getElementById("preloader").style.display = "none";
+    }, 500);
+  }, 2400); // 1.2s × 2 = 2.4s
+});
+</script>
+<script>
+const title = document.querySelector(".main-title");
+
+window.addEventListener("scroll", () => {
+  const top = title.getBoundingClientRect().top;
+
+  if (top < window.innerHeight - 100) {
+    title.classList.add("animate");
+  }
+});
+</script>
+
+<script>
+const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+});
+</script>
+<!-- =========================
+     SCRIPTS   
+============================== -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>

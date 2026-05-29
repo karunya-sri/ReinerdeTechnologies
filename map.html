@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Reinerde — Contact Us</title>
+<meta name="description" content="Get in touch with Reinerde Technology - Environmental Solutions">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/owl.theme.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<script src="js/reinerde-db.js"></script>
+<style>
+
+/* ── PRESERVED ORIGINAL ── */
+.reveal { opacity:0; transform:translateY(60px); transition:all 0.8s ease; }
+.reveal.active { opacity:1; transform:translateY(0); }
+
+.go-top {
+  position:fixed; bottom:30px; right:30px; width:50px; height:50px;
+  background:linear-gradient(135deg,#eaf2f5,#012b5e); color:white;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:50%; font-size:22px; text-decoration:none;
+  box-shadow:0 10px 25px rgba(30,10,10,0.4); transition:all 0.3s ease;
+  opacity:0; visibility:hidden;
+}
+.go-top.active { opacity:1; visibility:visible; }
+.go-top:hover { transform:translateY(-5px); box-shadow:0 15px 35px rgba(76,76,77,0.7); }
+.go-top i { transition:0.3s ease; }
+.go-top:hover i { transform:translateY(-3px); }
+
+.chatbot-toggle {
+  position:fixed; bottom:95px; right:20px; width:65px; height:65px;
+  background:linear-gradient(135deg,#00c6ff,#0072ff); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,114,255,0.5); transition:0.3s ease;
+}
+.chatbot-toggle:hover { transform:scale(1.1); }
+.chatbot-toggle img { width:35px; height:35px; }
+
+.chatbot-box {
+  position:fixed; bottom:110px; right:25px; width:320px; background:white;
+  border-radius:15px; box-shadow:0 20px 50px rgba(0,114,255,0.3);
+  overflow:hidden; display:none; animation:slideUp 0.4s ease;
+}
+.chat-header {
+  background:linear-gradient(135deg,#00c6ff,#0072ff); color:white;
+  padding:12px; font-weight:bold; display:flex;
+  justify-content:space-between; align-items:center;
+}
+.chat-body { padding:15px; max-height:300px; overflow-y:auto; }
+.bot-message { background:#e6f4ff; padding:8px 12px; border-radius:10px; margin-bottom:10px; font-size:14px; }
+.options button {
+  width:100%; margin:5px 0; padding:8px; border:none; border-radius:8px;
+  background:#0072ff; color:white; cursor:pointer; transition:0.3s;
+}
+.options button:hover { background:#0056cc; }
+
+@keyframes slideUp { from{transform:translateY(30px);opacity:0;} to{transform:translateY(0);opacity:1;} }
+
+.admin-btn {
+  background:linear-gradient(45deg,black,rgb(34,34,34)); color:white;
+  border:none; padding:8px 15px; border-radius:20px; cursor:pointer; transition:0.3s;
+}
+.admin-btn:hover { transform:translateY(-2px); }
+
+.admin-modal {
+  display:none; position:fixed; z-index:9999; left:0; top:0;
+  width:100%; height:100%; background:rgba(0,0,0,0.6);
+}
+.admin-content {
+  background:white; width:300px; margin:10% auto; padding:30px;
+  border-radius:10px; text-align:center; animation:slideUp 0.4s ease;
+}
+.admin-content input { width:100%; padding:10px; margin:10px 0; border:1px solid #ddd; border-radius:5px; }
+.close-btn { float:right; cursor:pointer; font-size:20px; }
+.admin-content button { background:#0b5ed7; color:white; padding:10px 20px; border:none; border-radius:20px; cursor:pointer; }
+
+.logoname {
+  height:auto; max-height:130px; width:auto; margin-left:-200px; margin-top:-35px;
+  transition:transform 0.5s ease,filter 0.3s;
+  filter:drop-shadow(0 4px 6px #061a28); animation:floatLogo 4s infinite ease-in-out;
+}
+@keyframes floatLogo {
+  0%{transform:translateY(0px) scale(1);}
+  50%{transform:translateY(-4px) scale(1.02);filter:drop-shadow(0 8px 12px #f9c74f80);}
+  100%{transform:translateY(0px) scale(1);}
+}
+.logoname:hover { animation:none; transform:scale(1.08) rotate(-1deg); filter:drop-shadow(0 0 10px #f9c74f); }
+
+.tagline-container { width:100px; overflow:hidden; margin-top:-60px; margin-left:-120px; }
+.tagline-text {
+  display:inline-block; white-space:nowrap; font-size:14px; font-weight:500;
+  color:#efebeb; animation:scrollText 8s linear infinite;
+}
+@keyframes scrollText { 0%{transform:translateX(100%);} 100%{transform:translateX(-100%);} }
+
+#tsparticles {
+  position: fixed; inset: 0; z-index: -10;
+  pointer-events: none; width: 100%; height: 100%;
+}
+
+.main-footer {
+  background:linear-gradient(900deg,#6e98b2,#73d3f3,#6e98b2);
+  color:rgb(7,7,7); padding:60px 0 20px; animation:fadeUp 1.2s ease;
+}
+.footer-container { width:90%; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:40px; }
+.footer-col h3 { margin-bottom:15px; font-size:22px; border-bottom:2px solid #66ccff; display:inline-block; padding-bottom:5px; }
+.footer-col p { font-size:14px; line-height:1.7; opacity:0.9; }
+.footer-col ul { list-style:none; padding:0; }
+.footer-col ul li { margin:10px 0; }
+.footer-col ul li a { color:rgb(14,14,14); text-decoration:none; transition:0.3s; }
+.footer-col ul li a:hover { color:#66ccff; padding-left:8px; }
+.social-icons a { display:inline-block; margin-right:12px; font-size:20px; color:rgb(8,8,8); transition:0.4s; }
+.social-icons a:hover { color:#66ccff; transform:translateY(-5px) scale(1.2); }
+.footer-bottom { text-align:center; margin-top:40px; border-top:1px solid rgba(255,255,255,0.3); padding-top:15px; font-size:14px; }
+.home_sci a {
+  display:inline-flex; justify-content:center; align-items:center;
+  width:45px; height:45px; background:transparent; border:2px solid rgb(3,3,3);
+  font-size:20px; color:rgb(6,6,6); border-radius:50%; text-decoration:none;
+  margin:30px 15px 30px 0; transition:.5s ease; opacity:0;
+  animation:slideLeft .5s ease forwards; animation-delay:calc(.1s * var(--i));
+}
+.home_sci a:hover { background-color:rgb(246,246,246); color:black; box-shadow:0 0 20px rgb(6,6,6); }
+@keyframes fadeUp { from{transform:translateY(60px);opacity:0;} to{transform:translateY(0);opacity:1;} }
+
+/* ================================================================
+   GREEN THEME VARIABLES
+================================================================ */
+:root {
+  --g1: #1a4a2e;   /* deep forest green */
+  --g2: #2d6a4f;   /* rich green */
+  --g3: #40916c;   /* mid green */
+  --g4: #52b788;   /* bright green */
+  --g5: #74c69d;   /* light mint */
+  --g6: #d8f3dc;   /* pale mint bg */
+  --g7: #081c0e;   /* darkest green */
+  --gtext: #1b4332;
+  --gsub: #6b8f71;
+  --gborder: #b7e4c7;
+}
+
+/* ================================================================
+   SECTION SHARED
+================================================================ */
+.section-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.section-head .eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--g2);
+  background: var(--g6);
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+.section-head h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--gtext);
+  margin: 0 0 12px;
+}
+.section-head p {
+  color: var(--gsub);
+  font-size: 15px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.section-head .title-bar {
+  width: 50px; height: 3px;
+  background: linear-gradient(to right, var(--g2), var(--g4));
+  border-radius: 2px;
+  margin: 14px auto 0;
+}
+
+/* ================================================================
+   CONTACT BANNER — DARK GREEN
+================================================================ */
+.contact-banner {
+  position: relative;
+  height: 480px;
+  background: linear-gradient(135deg, #071a0d 0%, #0f2d1a 50%, #1a4a2e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Animated water-ripple rings */
+.banner-rings {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(82, 183, 136, 0.18);
+  transform: translate(-50%, -50%);
+  animation: expandRing linear infinite;
+}
+@keyframes expandRing {
+  0%  { transform: translate(-50%, -50%) scale(0.2); opacity: 0.7; }
+  100%{ transform: translate(-50%, -50%) scale(3.5); opacity: 0; }
+}
+
+/* Oil-slick shimmer overlay — green tones */
+.banner-shimmer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    radial-gradient(ellipse 60% 40% at 30% 60%, rgba(64,145,108,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 35% at 75% 35%, rgba(45,106,79,0.14) 0%, transparent 65%);
+}
+
+/* Grid */
+.banner-grid {
+  position: absolute; inset: 0; z-index: 2;
+  background-image:
+    linear-gradient(rgba(82,183,136,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(82,183,136,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.banner-particles {
+  position: absolute; inset: 0; overflow: hidden; z-index: 3;
+  pointer-events: none;
+}
+.banner-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  animation: floatDot linear infinite;
+}
+@keyframes floatDot {
+  0%  { transform:translateY(480px) rotate(0deg); opacity:0; }
+  10% { opacity:1; }
+  90% { opacity:1; }
+  100%{ transform:translateY(-60px) rotate(360deg); opacity:0; }
+}
+
+/* Molecule nodes decoration */
+.molecule-svg {
+  position: absolute;
+  right: 8%;
+  bottom: 12%;
+  width: 180px;
+  opacity: 0.12;
+  z-index: 3;
+  animation: rotateMol 20s linear infinite;
+}
+@keyframes rotateMol { to { transform: rotate(360deg); } }
+
+.banner-content {
+  position: relative; z-index: 4;
+  color: #fff;
+  padding: 0 20px;
+  max-width: 680px;
+}
+
+.banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(64,145,108,0.22);
+  border: 1px solid rgba(82,183,136,0.45);
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #95d5b2;
+  margin-bottom: 20px;
+}
+.banner-badge i { font-size: 14px; }
+
+.banner-content h1 {
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #ffffff 0%, #b7e4c7 50%, #74c69d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.banner-divider {
+  width: 60px; height: 3px;
+  background: linear-gradient(to right, var(--g2), var(--g4));
+  border-radius: 2px;
+  margin: 0 auto 18px;
+}
+
+.banner-content p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(200,230,210,0.88);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.banner-info-pills {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.info-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  color: rgba(200,240,215,0.9);
+  backdrop-filter: blur(4px);
+}
+.info-pill i { color: var(--g4); font-size: 15px; }
+
+/* ================================================================
+   QUICK CONTACT STRIP — GREEN
+================================================================ */
+.quick-strip {
+  background: linear-gradient(135deg, #1a4a2e 0%, #2d6a4f 50%, #40916c 100%);
+  padding: 0;
+}
+.quick-strip-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.quick-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 36px;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  flex: 1;
+  min-width: 200px;
+  max-width: 280px;
+  transition: background 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+.quick-item:last-child { border-right: none; }
+.quick-item:hover { background: rgba(255,255,255,0.1); text-decoration: none; }
+.qi-icon {
+  width: 46px; height: 46px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: white;
+  flex-shrink: 0;
+  transition: transform 0.3s, background 0.3s;
+}
+.quick-item:hover .qi-icon {
+  transform: scale(1.1) rotate(-5deg);
+  background: rgba(255,255,255,0.28);
+}
+.qi-text strong {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+.qi-text span {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ================================================================
+   MAIN CONTACT SECTION — GREEN
+================================================================ */
+.contact-main {
+
+  padding: 90px 0;
+}
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 50px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── LEFT PANEL ── */
+.contact-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.info-intro {
+  margin-bottom: 8px;
+}
+.info-intro h3 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--gtext);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.info-intro p {
+  font-size: 14.5px;
+  color: var(--gsub);
+  line-height: 1.75;
+}
+
+.info-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.05);
+  border: 1px solid #c8e6c9;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.info-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--g2), var(--g4));
+  border-radius: 3px 0 0 3px;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.35s ease;
+}
+.info-card:hover::before { transform: scaleY(1); }
+.info-card:hover {
+  transform: translateX(6px);
+  box-shadow: 0 10px 30px rgba(45,106,79,0.13);
+  border-color: rgba(64,145,108,0.35);
+}
+.ic-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d8f3dc, #b7e4c7);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: var(--g2);
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+.info-card:hover .ic-icon {
+  background: linear-gradient(135deg, var(--g2), var(--g4));
+  color: white;
+}
+.ic-body strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gtext);
+  margin-bottom: 4px;
+}
+.ic-body p {
+  font-size: 13.5px;
+  color: var(--gsub);
+  margin: 0;
+  line-height: 1.5;
+}
+.ic-body a {
+  color: var(--g2);
+  text-decoration: none;
+  font-weight: 600;
+}
+.ic-body a:hover { text-decoration: underline; }
+
+/* Specialties */
+.specialties-block {
+  background: linear-gradient(135deg, #0f2d1a, #1a4a2e);
+  border-radius: 16px;
+  padding: 24px 22px;
+  color: white;
+}
+.specialties-block h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--g5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.spec-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.spec-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  font-size: 12px;
+  color: rgba(200,240,215,0.9);
+  font-weight: 500;
+  transition: background 0.25s;
+}
+.spec-tag:hover { background: rgba(82,183,136,0.28); }
+.spec-tag i { font-size: 13px; color: var(--g4); }
+
+/* Social Links */
+.social-block { display: flex; gap: 12px; margin-top: 4px; }
+.soc-btn {
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1.5px solid #b7e4c7;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: var(--g2);
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.soc-btn:hover {
+  background: linear-gradient(135deg, var(--g2), var(--g4));
+  color: white;
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(45,106,79,0.3);
+}
+
+/* ── RIGHT PANEL — FORM ── */
+.contact-form-panel {
+
+  border-radius: 22px;
+  padding: 40px 38px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.07);
+  border: 1px solid #c8e6c9;
+}
+
+.form-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e8f5e9;
+}
+.form-icon-wrap {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, var(--g2), var(--g4));
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; color: white;
+  flex-shrink: 0;
+}
+.form-top h3 { font-size: 20px; font-weight: 700; color: var(--gtext); margin: 0 0 4px; }
+.form-top p { font-size: 13px; color: var(--gsub); margin: 0; }
+
+.form-group {
+  margin-bottom: 18px;
+}
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #3a5a40;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 7px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #c8e6c9;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  color: var(--gtext);
+  background: #f9fdf9;
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+  outline: none;
+  -webkit-appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--g3);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(64,145,108,0.12);
+}
+.form-group textarea {
+  height: 120px;
+  resize: vertical;
+}
+.form-group select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232d6a4f' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.form-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.check-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  color: #3a5a40;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #b7e4c7;
+  background: #f9fdf9;
+  transition: all 0.25s;
+  user-select: none;
+}
+.check-label input[type="checkbox"] { display: none; }
+.check-label.selected,
+.check-label:has(input:checked) {
+  background: #d8f3dc;
+  border-color: var(--g3);
+  color: var(--g2);
+  font-weight: 600;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--g1) 0%, var(--g3) 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.3px;
+}
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0f2d1a, var(--g2));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.submit-btn:hover::before { opacity: 1; }
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(27,67,50,0.35); }
+.submit-btn span { position: relative; z-index: 1; }
+.submit-btn i { position: relative; z-index: 1; font-size: 18px; vertical-align: middle; margin-left: 8px; }
+
+/* Success message */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+.form-success .check-circle {
+  width: 70px; height: 70px;
+  background: linear-gradient(135deg, var(--g2), var(--g4));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px; color: white;
+  margin: 0 auto 20px;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes popIn { 0%{transform:scale(0);} 100%{transform:scale(1);} }
+.form-success h4 { font-size: 20px; color: var(--gtext); margin-bottom: 10px; font-weight: 700; }
+.form-success p { color: var(--gsub); font-size: 14px; }
+
+/* ================================================================
+   ECO IMPACT STRIP — GREEN
+================================================================ */
+.eco-strip {
+
+  padding: 60px 0;
+  border-top: 1px solid #c8e6c9;
+  border-bottom: 1px solid #c8e6c9;
+}
+.eco-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.eco-item {
+  flex: 1;
+  min-width: 180px;
+  text-align: center;
+  padding: 24px 20px;
+  border-right: 1px solid #edf1f7;
+  position: relative;
+}
+.eco-item:last-child { border-right: none; }
+.eco-icon {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d8f3dc, #b7e4c7);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; color: var(--g2);
+  margin: 0 auto 14px;
+  transition: all 0.3s;
+}
+.eco-item:hover .eco-icon {
+  background: linear-gradient(135deg, var(--g2), var(--g4));
+  color: white;
+  transform: scale(1.1);
+}
+.eco-item strong {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gtext);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.eco-item span {
+  font-size: 12px;
+  color: var(--gsub);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+}
+
+/* ================================================================
+   MAP + VISIT SECTION — GREEN
+================================================================ */
+.map-section {
+
+  padding: 80px 0;
+}
+.map-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+  align-items: start;
+}
+.visit-info h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gtext);
+  margin-bottom: 6px;
+}
+.visit-info > p {
+  font-size: 14px;
+  color: var(--gsub);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.visit-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.05);
+  border: 1px solid #c8e6c9;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.visit-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(45,106,79,0.13);
+}
+.vc-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #d8f3dc, #b7e4c7);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: var(--g2);
+  flex-shrink: 0;
+}
+.vc-body strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gtext);
+  margin-bottom: 3px;
+}
+.vc-body p { font-size: 13px; color: var(--gsub); margin: 0; line-height: 1.5; }
+
+.map-embed {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(45,106,79,0.15);
+  border: 1px solid #b7e4c7;
+  height: 380px;
+  position: relative;
+}
+.map-embed iframe {
+  width: 100%; height: 100%;
+  border: none;
+}
+/* Stylized map placeholder */
+.map-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #e8f0fe 0%, #c9ddf7 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.map-placeholder i { font-size: 52px; color: #0072ff; opacity: 0.5; }
+.map-placeholder p { font-size: 14px; color: #4a6080; font-weight: 500; }
+
+/* ================================================================
+   FAQ SECTION — GREEN
+================================================================ */
+.faq-section {
+
+  padding: 80px 0 90px;
+}
+.faq-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.faq-item {
+  border: 1.5px solid #c8e6c9;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.faq-item.open {
+  border-color: rgba(64,145,108,0.5);
+  box-shadow: 0 6px 24px rgba(45,106,79,0.1);
+}
+.faq-q {
+  padding: 18px 22px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--gtext);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fff;
+  transition: background 0.2s;
+  user-select: none;
+}
+.faq-item.open .faq-q { background: #f2faf5; }
+.faq-q i {
+  font-size: 20px;
+  color: var(--g3);
+  flex-shrink: 0;
+  transition: transform 0.35s;
+}
+.faq-item.open .faq-q i { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  font-size: 13.5px;
+  color: var(--gsub);
+  line-height: 1.75;
+}
+.faq-a-inner { padding: 0 22px 18px; }
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+@media(max-width: 900px) {
+  .contact-layout { grid-template-columns: 1fr; }
+  .map-layout { grid-template-columns: 1fr; }
+  .map-embed { height: 300px; }
+}
+@media(max-width: 768px) {
+  .contact-banner { height: 380px; }
+  .banner-content h1 { font-size: 36px; }
+  .quick-item { min-width: 160px; padding: 18px 20px; }
+  .form-row-2 { grid-template-columns: 1fr; }
+  .contact-form-panel { padding: 28px 22px; }
+}
+@media(max-width: 500px) {
+  .contact-banner { height: 320px; }
+  .banner-content h1 { font-size: 28px; }
+  .banner-info-pills { flex-direction: column; align-items: center; }
+  .eco-item { min-width: 140px; }
+}
+
+</style>
+</head>
+<body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
+
+<div id="tsparticles"></div>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+  fullScreen: { enable: true, zIndex: -10 },
+  background: { color: { value: "transparent" } },
+  particles: {
+    number: { value: 45, density: { enable: true, area: 1200 } },
+    color: { value: ["#0072ff", "#00c6ff", "#f9c74f", "#ffe066", "#ffd700"] },
+    shape: { type: "circle" },
+    size: { value: { min: 3, max: 8 } },
+    move: {
+      enable: true, speed: { min: 0.6, max: 2 },
+      direction: "none", random: true, straight: false,
+      outModes: { default: "out" }
+    },
+    opacity: {
+      value: { min: 0.2, max: 0.7 },
+      animation: { enable: true, speed: 0.8, minimumValue: 0.1, sync: false }
+    },
+    links: { enable: true, distance: 140, color: "#0072ff", opacity: 0.12, width: 1 }
+  },
+  interactivity: {
+    events: {
+      onHover: { enable: true, mode: "bubble" },
+      onClick: { enable: true, mode: "push" }
+    },
+    modes: {
+      bubble: { distance: 150, size: 18, duration: 0.4, color: "#f9c74f", opacity: 0.9 },
+      push: { quantity: 4 }
+    }
+  },
+  detectRetina: true
+});
+</script>
+
+<!-- ── NAVBAR ── -->
+<div class="navbar navbar-fixed-top custom-navbar" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+      <div>
+        <img src="images/logo1.png" alt="Reinerde logo" class="logoname" style="margin-left:-200px;">
+        <div class="tagline-container">
+          <div class="tagline-text">Together for Tomorrow</div>
+        </div>
+      </div>
+      <ul class="nav navbar-nav navbar-right" style="margin-top:-50px;">
+        <li class="nav-item"><a href="index.html" class="smoothScroll">Home<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="about.html" class="smoothScroll">About us<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="product.html" class="smoothScroll">Products<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="project.html" class="smoothScroll">Projects<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="team.html" class="smoothScroll">Team<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="map.html" class="smoothScroll">Contact<span class="text-white">   |</span></a></li>
+        
+        <li class="nav-item ms-3"><a href="#" class="nav-link p-0"><i class="bi bi-headset"></i></a></li>
+        <li class="nav-item"><button class="admin-btn" onclick="openLogin()">Admin Login</button></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+function openLogin()  { document.getElementById("adminModal").style.display = "block"; }
+function closeLogin() { document.getElementById("adminModal").style.display = "none"; }
+function loginAdmin() {
+  const user = document.getElementById("adminUser").value;
+  const pass = document.getElementById("adminPass").value;
+  if (user === "admin" && pass === "1234") {
+    alert("Login Successful!");
+    window.location.href = "admin-dashboard.php";
+  } else { alert("Invalid Credentials"); }
+}
+window.addEventListener("scroll", function () {
+  const navbar = document.querySelector(".custom-navbar");
+  window.scrollY > 50 ? navbar.classList.add("scrolled") : navbar.classList.remove("scrolled");
+});
+</script>
+
+<!-- ================================================================
+     BANNER
+================================================================ -->
+<section class="contact-banner">
+  <div class="banner-rings" id="bannerRings"></div>
+  <div class="banner-shimmer"></div>
+  <div class="banner-grid"></div>
+  <div class="banner-particles" id="bannerParticles"></div>
+
+  <!-- Decorative molecule SVG -->
+  <svg class="molecule-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="10" fill="#52b788"/>
+    <circle cx="50"  cy="60"  r="7"  fill="#2d6a4f"/>
+    <circle cx="160" cy="70"  r="7"  fill="#2d6a4f"/>
+    <circle cx="60"  cy="155" r="7"  fill="#2d6a4f"/>
+    <circle cx="155" cy="145" r="7"  fill="#52b788"/>
+    <circle cx="30"  cy="120" r="5"  fill="#74c69d"/>
+    <line x1="100" y1="100" x2="50"  y2="60"  stroke="#52b788" stroke-width="1.5"/>
+    <line x1="100" y1="100" x2="160" y2="70"  stroke="#52b788" stroke-width="1.5"/>
+    <line x1="100" y1="100" x2="60"  y2="155" stroke="#52b788" stroke-width="1.5"/>
+    <line x1="100" y1="100" x2="155" y2="145" stroke="#52b788" stroke-width="1.5"/>
+    <line x1="100" y1="100" x2="30"  y2="120" stroke="#74c69d" stroke-width="1"/>
+    <line x1="50"  y1="60"  x2="30"  y2="120" stroke="#74c69d" stroke-width="1"/>
+    <line x1="60"  y1="155" x2="155" y2="145" stroke="#74c69d" stroke-width="1"/>
+  </svg>
+
+  <div class="banner-content">
+    <div class="banner-badge">
+      <i class="bx bx-envelope"></i>
+      Get In Touch
+    </div>
+    <h1>Contact Reinerde</h1>
+    <div class="banner-divider"></div>
+    <p>Whether it's wastewater treatment, oil recovery, or environmental restoration — our experts are ready to craft the solution your industry needs.</p>
+    <div class="banner-info-pills">
+      <div class="info-pill"><i class="bx bx-time"></i> Respond within 24 hours</div>
+      <div class="info-pill"><i class="bx bx-shield-check"></i> Confidential Consultation</div>
+      <div class="info-pill"><i class="bx bx-leaf"></i> Eco-First Approach</div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Floating particles
+const bpContainer = document.getElementById('bannerParticles');
+for(let i = 0; i < 18; i++){
+  const dot = document.createElement('div');
+  dot.className = 'banner-dot';
+  const size = Math.random() * 6 + 3;
+  dot.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;bottom:-20px;animation-duration:${Math.random()*6+5}s;animation-delay:${Math.random()*8}s;opacity:${Math.random()*0.4+0.1};`;
+  bpContainer.appendChild(dot);
+}
+// Ripple rings
+const ringsContainer = document.getElementById('bannerRings');
+const ringPositions = [{x:'25%',y:'55%'},{x:'75%',y:'40%'},{x:'50%',y:'80%'}];
+ringPositions.forEach((pos, idx) => {
+  for(let i = 0; i < 4; i++){
+    const ring = document.createElement('div');
+    ring.className = 'ring';
+    const sz = 80 + i * 60;
+    ring.style.cssText = `width:${sz}px;height:${sz}px;left:${pos.x};top:${pos.y};animation-duration:${5 + i}s;animation-delay:${i * 1.2 + idx * 0.6}s;`;
+    ringsContainer.appendChild(ring);
+  }
+});
+</script>
+
+<!-- ================================================================
+     QUICK CONTACT STRIP
+================================================================ -->
+<div class="quick-strip">
+  <div class="quick-strip-inner">
+    <a href="tel:+919876543210" class="quick-item">
+      <div class="qi-icon"><i class="bx bx-phone-call"></i></div>
+      <div class="qi-text">
+        <strong>Call Us</strong>
+        <span>+91 8838732239</span>
+      </div>
+    </a>
+    <a href="mailto:info@reinerde.com" class="quick-item">
+      <div class="qi-icon"><i class="bx bx-envelope"></i></div>
+      <div class="qi-text">
+        <strong>Email Us</strong>
+        <span>reinerdetech@gmail.com</span>
+      </div>
+    </a>
+    <div class="quick-item">
+      <div class="qi-icon"><i class="bx bx-map-pin"></i></div>
+      <div class="qi-text">
+        <strong>Visit Us</strong>
+        <span>Chennai, India</span>
+      </div>
+    </div>
+    <div class="quick-item">
+      <div class="qi-icon"><i class="bx bx-time-five"></i></div>
+      <div class="qi-text">
+        <strong>Working Hours</strong>
+        <span>Mon – Sat, 9AM – 6PM</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     MAIN CONTACT SECTION
+================================================================ -->
+<section class="contact-main" id="contact-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Reach Out</span>
+      <h2>Let's Start a Conversation</h2>
+      <p>Tell us about your environmental challenge and we'll connect you with the right specialist.</p>
+      <div class="title-bar"></div>
+    </div>
+
+    <div class="contact-layout">
+
+      <!-- LEFT: Info -->
+      <div class="contact-info-panel reveal">
+        <div class="info-intro">
+          <h3>We'd love to hear from you</h3>
+          <p>From industrial effluent management to oil spill remediation and sustainable recycling programs, our team is equipped to handle complex environmental challenges across sectors.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="ic-icon"><i class="bx bx-map-pin"></i></div>
+          <div class="ic-body">
+            <strong>Registered Office</strong>
+            <p>Reinerde Technology Pvt. Ltd.<br>Chennai, Tamil Nadu — 600001, India</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="ic-icon"><i class="bx bx-phone"></i></div>
+          <div class="ic-body">
+            <strong>Phone &amp; WhatsApp</strong>
+            <p><a href="tel:+918838732239">+91 8838732239</a></p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="ic-icon"><i class="bx bx-envelope-open"></i></div>
+          <div class="ic-body">
+            <strong>Email Addresses</strong>
+            <p><a href="mailto:reinerdetech@gmail.com">reinerdetech@gmail.com</a><br><a href="mailto:reinerdetech@gmail.com">reinerdetech@gmail.com</a></p>
+          </div>
+        </div>
+
+        <div class="specialties-block">
+          <h4><i class="bx bx-atom" style="vertical-align:middle; margin-right:6px;"></i> Our Specialties</h4>
+          <div class="spec-tags">
+            <span class="spec-tag"><i class="bx bx-droplet"></i> Wastewater Treatment</span>
+            <span class="spec-tag"><i class="bx bx-recycle"></i> Oil Recovery</span>
+            <span class="spec-tag"><i class="bx bx-leaf"></i> Environmental Restoration</span>
+            <span class="spec-tag"><i class="bx bx-analyse"></i> Microbial R&amp;D</span>
+            <span class="spec-tag"><i class="bx bx-shield"></i> Process Safety</span>
+            <span class="spec-tag"><i class="bx bx-water"></i> Effluent Management</span>
+          </div>
+        </div>
+
+        <div>
+          <p style="font-size:13px; color:#9aabb8; margin-bottom:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px;">Follow Our Journey</p>
+          <div class="social-block">
+            <a href="#" class="soc-btn"><i class="bx bxl-linkedin"></i></a>
+            <a href="#" class="soc-btn"><i class="bx bxl-instagram"></i></a>
+            <a href="#" class="soc-btn"><i class="bx bxl-twitter"></i></a>
+            <a href="#" class="soc-btn"><i class="bx bxl-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="contact-form-panel reveal" id="formPanel">
+        <div class="form-top">
+          <div class="form-icon-wrap"><i class="bx bx-send"></i></div>
+          <div>
+            <h3>Send Us a Message</h3>
+            <p>We typically respond within one business day.</p>
+          </div>
+        </div>
+
+        <div id="contactForm">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="e.g. Rohith" id="fname">
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="e.g. Kumar" id="lname">
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="you@company.com" id="email">
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+91 8838732239" id="phone">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Company / Organisation</label>
+            <input type="text" placeholder="Your company name" id="company">
+          </div>
+
+          <div class="form-group">
+            <label>I'm Interested In</label>
+            <div class="form-checks" id="interestChecks">
+              <label class="check-label"><input type="checkbox" value="wastewater"> <i class="bx bx-droplet"></i> Wastewater Treatment</label>
+              <label class="check-label"><input type="checkbox" value="oil"> <i class="bx bx-recycle"></i> Oil Recovery</label>
+              <label class="check-label"><input type="checkbox" value="env"> <i class="bx bx-leaf"></i> Environmental Restoration</label>
+              <label class="check-label"><input type="checkbox" value="microbial"> <i class="bx bx-analyse"></i> Microbial R&amp;D</label>
+              <label class="check-label"><input type="checkbox" value="safety"> <i class="bx bx-shield"></i> Process Safety</label>
+              <label class="check-label"><input type="checkbox" value="other"> <i class="bx bx-dots-horizontal"></i> Other</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>How Can We Help?</label>
+            <textarea placeholder="Describe your project, requirement, or question..." id="message"></textarea>
+          </div>
+
+          <button class="submit-btn" onclick="submitForm()">
+            <span>Send Message</span>
+            <i class="bx bx-paper-plane"></i>
+          </button>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="check-circle"><i class="bx bx-check"></i></div>
+          <h4>Message Sent Successfully!</h4>
+          <p>Thank you for reaching out. Our environmental specialists will get back to you within one business day.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     ECO IMPACT STRIP
+================================================================ -->
+<section class="eco-strip">
+  <div class="container">
+    <div class="eco-grid reveal">
+      <div class="eco-item">
+        <div class="eco-icon"><i class="bx bx-droplet"></i></div>
+        <strong>500 M+</strong>
+        <span>Litres Treated</span>
+      </div>
+      <div class="eco-item">
+        <div class="eco-icon"><i class="bx bx-leaf"></i></div>
+        <strong>30+</strong>
+        <span>Projects Completed</span>
+      </div>
+      <div class="eco-item">
+        <div class="eco-icon"><i class="bx bx-group"></i></div>
+        <strong>15+</strong>
+        <span>Industry Partners</span>
+      </div>
+      <div class="eco-item">
+        <div class="eco-icon"><i class="bx bx-world"></i></div>
+        <strong>5+</strong>
+        <span>States Covered</span>
+      </div>
+      <div class="eco-item">
+        <div class="eco-icon"><i class="bx bx-recycle"></i></div>
+        <strong>98%</strong>
+        <span>Recovery Rate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     MAP + VISIT SECTION
+================================================================ -->
+<section class="map-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Find Us</span>
+      <h2>Our Location</h2>
+      <p>Visit our office in Chennai or reach us through any of the channels below.</p>
+      <div class="title-bar"></div>
+    </div>
+
+    <div class="map-layout reveal">
+      <div class="visit-info">
+        <h3>Plan Your Visit</h3>
+        <p>Our Chennai office is your gateway to expert environmental consulting and project coordination.</p>
+
+        <div class="visit-card">
+          <div class="vc-icon"><i class="bx bx-map"></i></div>
+          <div class="vc-body">
+            <strong>Address</strong>
+            <p>Reinerde Technology Pvt. Ltd.<br>Chennai, Tamil Nadu — 600001</p>
+          </div>
+        </div>
+
+        <div class="visit-card">
+          <div class="vc-icon"><i class="bx bx-time"></i></div>
+          <div class="vc-body">
+            <strong>Office Hours</strong>
+            <p>Monday – Friday: 9:00 AM – 6:00 PM<br>Saturday: 9:00 AM – 1:00 PM</p>
+          </div>
+        </div>
+
+        <div class="visit-card">
+          <div class="vc-icon"><i class="bx bx-train"></i></div>
+          <div class="vc-body">
+            <strong>How to Reach</strong>
+            <p>Well connected via Chennai Metro, bus routes, and major highways.</p>
+          </div>
+        </div>
+
+        <div class="visit-card">
+          <div class="vc-icon"><i class="bx bx-building-house"></i></div>
+          <div class="vc-body">
+            <strong>Field Operations</strong>
+            <p>Site visits and project assessments available across Tamil Nadu &amp; South India.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-embed">
+        <!-- Replace src with your actual Google Maps embed link -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.84916294702!2d80.06892860148975!3d13.047482498124038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1716000000000!5m2!1sen!2sin"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FAQ SECTION
+================================================================ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQs</span>
+      <h2>Common Questions</h2>
+      <p>Quick answers to the questions we hear most often.</p>
+      <div class="title-bar"></div>
+    </div>
+
+    <div class="faq-wrap reveal">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFAQ(this)">
+          What industries does Reinerde serve?
+          <i class="bx bx-plus"></i>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Reinerde serves textile, petrochemical, oil &amp; gas, municipal, and agro-industrial sectors. Our solutions cover wastewater treatment, oil recovery, effluent recycling, and environmental compliance across these verticals.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFAQ(this)">
+          How quickly can your team respond to an emergency environmental situation?
+          <i class="bx bx-plus"></i>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">For urgent situations, our field response team can be mobilised within 24–48 hours for sites within Tamil Nadu. Contact us directly by phone for fastest response.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFAQ(this)">
+          Do you offer on-site water quality testing and analysis?
+          <i class="bx bx-plus"></i>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes. Our team provides on-site sampling, water quality analysis, and effluent characterisation as part of our project assessment process. Lab-based detailed analysis is also available through our partner facilities.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFAQ(this)">
+          Can Reinerde help with regulatory compliance and environmental permits?
+          <i class="bx bx-plus"></i>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Absolutely. We assist clients with CPCB and TNPCB compliance, ETP design, zero liquid discharge (ZLD) systems, and all required documentation for environmental permits and audits.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFAQ(this)">
+          Do you offer internship or research collaboration opportunities?
+          <i class="bx bx-plus"></i>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes! We actively collaborate with engineering colleges and research institutions. Internship applications are open — send your resume to <strong>info@reinerde.com</strong> with the subject "Internship Application".</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Reinerde</h3>
+      <p>Committed to sustainable environmental solutions, wastewater treatment, and building a greener future for tomorrow.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contact Info</h3>
+      <p>Email: info@reinerde.com</p>
+      <p>Phone: +91 98765 43210</p>
+      <p>Location: Chennai, India</p>
+    </div>
+    <div class="footer-col">
+      <h3>Follow Us</h3>
+      <div class="home_sci">
+        <a href="#"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="#"><i class='bx bxl-twitter'></i></a>
+        <a href="#"><i class='bx bxl-whatsapp'></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Reinerde | All Rights Reserved</div>
+</footer>
+
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+<script>
+window.addEventListener("scroll", function () {
+  const btn = document.querySelector(".go-top");
+  window.scrollY > 300 ? btn.classList.add("active") : btn.classList.remove("active");
+});
+</script>
+
+<!-- Chatbot -->
+<div class="chatbot-toggle" onclick="toggleChat()">
+  <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Bot">
+</div>
+<div class="chatbot-box" id="chatbot">
+  <div class="chat-header">
+    Reinerde Assistant <span onclick="toggleChat()">✖</span>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="bot-message">Hello 👋 How can I help you?</div>
+    <div class="options">
+      <button onclick="showAnswer('services')">Our Services</button>
+      <button onclick="showAnswer('wastewater')">Wastewater Treatment</button>
+      <button onclick="showAnswer('contact')">Contact Details</button>
+      <button onclick="showAnswer('about')">About Company</button>
+    </div>
+  </div>
+</div>
+<script>
+function toggleChat() {
+  const chatbot = document.getElementById("chatbot");
+  chatbot.style.display = chatbot.style.display === "block" ? "none" : "block";
+}
+function showAnswer(type) {
+  const chatBody = document.getElementById("chatBody");
+  const answers = {
+    services: "We provide Industrial Wastewater Treatment, Soil Plantation, and Environmental Restoration.",
+    wastewater: "Our wastewater systems help textile industries recycle and purify water efficiently.",
+    contact: "Contact us at info@reinerde.com or call +91-XXXXXXXXXX.",
+    about: "Reinerde Technology Pvt Ltd focuses on sustainable environmental solutions."
+  };
+  const reply = document.createElement("div");
+  reply.classList.add("bot-message");
+  reply.innerText = answers[type] || "";
+  chatBody.appendChild(reply);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+</script>
+
+<!-- Reveal on scroll -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const reveals = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("active");
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(reveal => observer.observe(reveal));
+});
+</script>
+
+<!-- FAQ toggle -->
+<script>
+function toggleFAQ(el) {
+  const item = el.parentElement;
+  const ans = item.querySelector('.faq-a');
+  const isOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-a').style.maxHeight = '0';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    ans.style.maxHeight = ans.scrollHeight + 'px';
+  }
+}
+</script>
+
+<!-- Checkbox pill toggle -->
+<script>
+document.querySelectorAll('.check-label').forEach(label => {
+  label.addEventListener('click', function() {
+    const cb = this.querySelector('input[type="checkbox"]');
+    setTimeout(() => {
+      this.classList.toggle('selected', cb.checked);
+    }, 0);
+  });
+});
+</script>
+
+<!-- Form submit -->
+<script>
+
+function submitForm() {
+
+    const fname = document.getElementById('fname').value;
+    const lname = document.getElementById('lname').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const company = document.getElementById('company').value;
+    const message = document.getElementById('message').value;
+
+    let interests = [];
+
+    document.querySelectorAll('.check-label input:checked')
+    .forEach(cb => {
+        interests.push(cb.value);
+    });
+
+    fetch("save-contact.php", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+
+        body:
+        "fname=" + encodeURIComponent(fname) +
+        "&lname=" + encodeURIComponent(lname) +
+        "&email=" + encodeURIComponent(email) +
+        "&phone=" + encodeURIComponent(phone) +
+        "&company=" + encodeURIComponent(company) +
+        "&interests=" + encodeURIComponent(interests.join(", ")) +
+        "&message=" + encodeURIComponent(message) +
+        "&source=Contact Page"
+
+    })
+
+    .then(response => response.text())
+
+    .then(data => {
+
+        if(data.trim() === "success") {
+
+            document.getElementById('contactForm').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+
+        } else {
+
+            alert("Error saving form");
+
+        }
+
+    });
+
+}
+
+</script>
+
+<!-- Admin Modal -->
+<div id="adminModal" class="admin-modal">
+  <div class="admin-content">
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+    <h3>Admin Login</h3>
+    <input type="text" id="adminUser" placeholder="Username">
+    <input type="password" id="adminPass" placeholder="Password">
+    <button onclick="loginAdmin()">Login</button>
+  </div>
+</div>
+
+<div id="preloader">
+  <img src="images/logo.png" alt="Logo" class="preloader-logo">
+</div>
+<script>
+window.addEventListener("load", function () {
+  setTimeout(() => {
+    document.getElementById("preloader").style.opacity = "0";
+    setTimeout(() => { document.getElementById("preloader").style.display = "none"; }, 500);
+  }, 2400);
+});
+</script>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>

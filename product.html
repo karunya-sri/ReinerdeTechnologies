@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Reinerde — Products</title>
+<meta name="description" content="Reinerde Bioculture Product Range">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+/* ================================================================
+   REVEAL ANIMATIONS
+================================================================ */
+.reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-zoom, .reveal-flip {
+  opacity: 0; transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal-up    { transform: translateY(60px); }
+.reveal-down  { transform: translateY(-60px); }
+.reveal-left  { transform: translateX(-70px); }
+.reveal-right { transform: translateX(70px); }
+.reveal-zoom  { transform: scale(0.75); }
+.reveal-flip  { transform: rotateX(40deg) translateY(40px); transform-origin: top center; }
+.reveal-up.active, .reveal-down.active, .reveal-left.active,
+.reveal-right.active, .reveal-zoom.active, .reveal-flip.active {
+  opacity: 1; transform: none;
+}
+.delay-1 { transition-delay: 0.10s; }
+.delay-2 { transition-delay: 0.20s; }
+.delay-3 { transition-delay: 0.30s; }
+.delay-4 { transition-delay: 0.40s; }
+.delay-5 { transition-delay: 0.50s; }
+.delay-6 { transition-delay: 0.60s; }
+.reveal { opacity:0; transform:translateY(60px); transition:all 0.8s ease; }
+.reveal.active { opacity:1; transform:translateY(0); }
+
+/* ================================================================
+   UTILITIES
+================================================================ */
+.go-top {
+  position:fixed; bottom:30px; right:30px; width:50px; height:50px;
+  background:linear-gradient(135deg,#eaf2f5,#012b5e); color:white;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:50%; font-size:22px; text-decoration:none;
+  box-shadow:0 10px 25px rgba(30,10,10,0.4); transition:all 0.3s ease;
+  opacity:0; visibility:hidden;
+}
+.go-top.active { opacity:1; visibility:visible; }
+.go-top:hover { transform:translateY(-5px); box-shadow:0 15px 35px rgba(76,76,77,0.7); }
+
+.chatbot-toggle {
+  position:fixed; bottom:95px; right:20px; width:65px; height:65px;
+  background:linear-gradient(135deg,#00c6ff,#0072ff); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,114,255,0.5); transition:0.3s ease;
+}
+.chatbot-toggle:hover { transform:scale(1.1); }
+.chatbot-toggle img { width:35px; height:35px; }
+.chatbot-box {
+  position:fixed; bottom:110px; right:25px; width:320px; background:white;
+  border-radius:15px; box-shadow:0 20px 50px rgba(0,114,255,0.3);
+  overflow:hidden; display:none; animation:slideUp 0.4s ease;
+}
+.chat-header { background:linear-gradient(135deg,#00c6ff,#0072ff); color:white; padding:12px; font-weight:bold; display:flex; justify-content:space-between; align-items:center; }
+.chat-body { padding:15px; max-height:300px; overflow-y:auto; }
+.bot-message { background:#e6f4ff; padding:8px 12px; border-radius:10px; margin-bottom:10px; font-size:14px; }
+.options button { width:100%; margin:5px 0; padding:8px; border:none; border-radius:8px; background:#0072ff; color:white; cursor:pointer; transition:0.3s; }
+.options button:hover { background:#0056cc; }
+@keyframes slideUp { from{transform:translateY(30px);opacity:0;} to{transform:translateY(0);opacity:1;} }
+
+.admin-btn { background:linear-gradient(45deg,black,rgb(34,34,34)); color:white; border:none; padding:8px 15px; border-radius:20px; cursor:pointer; transition:0.3s; }
+.admin-btn:hover { transform:translateY(-2px); }
+.admin-modal { display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.6); }
+.admin-content { background:white; width:300px; margin:10% auto; padding:30px; border-radius:10px; text-align:center; animation:slideUp 0.4s ease; }
+.admin-content input { width:100%; padding:10px; margin:10px 0; border:1px solid #ddd; border-radius:5px; }
+.close-btn { float:right; cursor:pointer; font-size:20px; }
+.admin-content button { background:#0b5ed7; color:white; padding:10px 20px; border:none; border-radius:20px; cursor:pointer; }
+
+.logoname {
+  height:auto; max-height:130px; width:auto; margin-left:-200px; margin-top:-35px;
+  transition:transform 0.5s ease,filter 0.3s;
+  filter:drop-shadow(0 4px 6px #061a28); animation:floatLogo 4s infinite ease-in-out;
+}
+@keyframes floatLogo {
+  0%{transform:translateY(0px) scale(1);}
+  50%{transform:translateY(-4px) scale(1.02);filter:drop-shadow(0 8px 12px #f9c74f80);}
+  100%{transform:translateY(0px) scale(1);}
+}
+.logoname:hover { animation:none; transform:scale(1.08) rotate(-1deg); filter:drop-shadow(0 0 10px #f9c74f); }
+
+.tagline-container { width:100px; overflow:hidden; margin-top:-60px; margin-left:-120px; }
+.tagline-text { display:inline-block; white-space:nowrap; font-size:14px; font-weight:500; color:#efebeb; animation:scrollText 8s linear infinite; }
+@keyframes scrollText { 0%{transform:translateX(100%);} 100%{transform:translateX(-100%);} }
+
+#tsparticles { position:fixed; inset:0; z-index:-10; pointer-events:none; width:100%; height:100%; }
+
+/* ================================================================
+   NAVBAR
+================================================================ */
+.custom-navbar { margin-bottom:0; background:transparent; padding:8px 0; transition:all 0.4s ease-in-out; height:50px; }
+.custom-navbar .nav li a { color:#fdfcfc; font-size:14px; font-weight:500; letter-spacing:0.6px; text-transform:uppercase; line-height:30px; padding:8px 8px; transition:0.3s; }
+.custom-navbar .nav li a:hover { color:#7AB2D3 !important; }
+.custom-navbar.scrolled { background-color:#7FA9C1; padding:2px 0; box-shadow:0 5px 20px rgba(0,0,0,0.3); }
+.bi-headset { font-size:24px; color:#fdfbfb; transition:0.3s ease; }
+.bi-headset:hover { color:#7AB2D3; transform:scale(1.2); }
+
+/* ================================================================
+   PRELOADER
+================================================================ */
+#preloader { position:fixed; width:100%; height:100%; background:#ffffff; top:0; left:0; z-index:9999; display:flex; justify-content:center; align-items:center; transition:opacity 0.5s ease; }
+.preloader-logo { width:420px; animation:zoomFade 1.2s ease-in-out 2; }
+@keyframes zoomFade { 0%{transform:scale(1);opacity:0.6;} 50%{transform:scale(1.2);opacity:1;} 100%{transform:scale(1);opacity:0.6;} }
+
+/* ================================================================
+   FOOTER
+================================================================ */
+.main-footer { background:linear-gradient(900deg,rgba(110,152,178,0.88),rgba(115,211,243,0.88),rgba(110,152,178,0.88)); color:rgb(7,7,7); padding:60px 0 20px; animation:fadeUp 1.2s ease; }
+.footer-container { width:90%; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:40px; }
+.footer-col h3 { margin-bottom:15px; font-size:22px; border-bottom:2px solid #66ccff; display:inline-block; padding-bottom:5px; }
+.footer-col p { font-size:14px; line-height:1.7; opacity:0.9; }
+.footer-col ul { list-style:none; padding:0; }
+.footer-col ul li { margin:10px 0; }
+.footer-col ul li a { color:rgb(14,14,14); text-decoration:none; transition:0.3s; }
+.footer-col ul li a:hover { color:#66ccff; padding-left:8px; }
+.social-icons a { display:inline-block; margin-right:12px; font-size:20px; color:rgb(8,8,8); transition:0.4s; }
+.social-icons a:hover { color:#66ccff; transform:translateY(-5px) scale(1.2); }
+.footer-bottom { text-align:center; margin-top:40px; border-top:1px solid rgba(255,255,255,0.3); padding-top:15px; font-size:14px; }
+@keyframes fadeUp { from{transform:translateY(60px);opacity:0;} to{transform:translateY(0);opacity:1;} }
+
+/* ================================================================
+   BANNER
+================================================================ */
+.product-banner {
+  position: relative; height: 480px;
+  background: linear-gradient(135deg, #030d22 0%, #041a3f 40%, #062d6b 70%, #0a3d8f 100%);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.product-banner::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,114,255,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,114,255,0.07) 1px, transparent 1px);
+  background-size: 60px 60px; z-index: 1;
+}
+.banner-glow {
+  position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 1;
+}
+.glow-1 { width: 500px; height: 500px; background: rgba(0,114,255,0.18); top: -120px; left: -100px; }
+.glow-2 { width: 400px; height: 400px; background: rgba(0,198,255,0.14); bottom: -100px; right: -80px; }
+.glow-3 { width: 300px; height: 300px; background: rgba(249,199,79,0.08); top: 50%; left: 50%; transform: translate(-50%,-50%); }
+
+.banner-particles { position: absolute; inset: 0; overflow: hidden; z-index: 2; pointer-events: none; }
+.banner-dot { position: absolute; border-radius: 50%; animation: floatDot linear infinite; }
+@keyframes floatDot {
+  0%  { transform:translateY(480px) rotate(0deg); opacity:0; }
+  10% { opacity:1; } 90% { opacity:1; }
+  100%{ transform:translateY(-60px) rotate(360deg); opacity:0; }
+}
+
+.banner-content { position: relative; z-index: 4; color: #fff; padding: 0 20px; max-width: 760px; }
+.banner-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(251,252,252,0.12); border: 1px solid rgba(0,198,255,0.4);
+  padding: 6px 18px; border-radius: 30px; font-size: 12px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase; color: #7ec8f7; margin-bottom: 20px;
+}
+.banner-badge i { font-size: 14px; }
+.banner-content h1 {
+  font-size: 52px; font-weight: 700; margin-bottom: 16px;
+  letter-spacing: -1px; line-height: 1.1;
+  background: linear-gradient(135deg, #ffffff 0%, #a8d4f5 50%, #5ba3e0 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.banner-content h1 span {
+  background: linear-gradient(135deg, #f9c74f 0%, #ffe066 60%, #ffd700 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.banner-divider { width: 60px; height: 3px; background: linear-gradient(to right, #0072ff, #00c6ff); border-radius: 2px; margin: 0 auto 18px; }
+.banner-content p { font-size: 16px; line-height: 1.75; color: rgba(220,235,250,0.85); max-width: 560px; margin: 0 auto; }
+.banner-stats { display: flex; justify-content: center; gap: 40px; margin-top: 32px; }
+.banner-stat { text-align: center; }
+.banner-stat strong { display: block; font-size: 26px; font-weight: 700; color: #00c6ff; line-height: 1; }
+.banner-stat span { font-size: 11px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; }
+
+/* ================================================================
+   SECTION SHARED
+================================================================ */
+.section-head { text-align: center; margin-bottom: 56px; }
+.section-head .eyebrow {
+  display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #0072ff; background: #e8f0fe;
+  padding: 5px 16px; border-radius: 20px; margin-bottom: 14px;
+}
+.section-head h2 { font-size: 34px; font-weight: 700; color: #0a1a3a; margin: 0 0 12px; }
+.section-head p { color: #7a8ba0; font-size: 15px; max-width: 540px; margin: 0 auto; }
+.section-head .title-bar { width: 50px; height: 3px; background: linear-gradient(to right, #0072ff, #00c6ff); border-radius: 2px; margin: 14px auto 0; }
+
+/* ================================================================
+   HOW IT WORKS
+================================================================ */
+.how-section { padding: 80px 0 70px; }
+.how-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; max-width: 1000px; margin: 0 auto; }
+.how-card {
+  width: 280px; background: rgba(255,255,255,0.82); border-radius: 20px;
+  padding: 36px 28px; text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #edf1f7;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative; overflow: hidden;
+}
+.how-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
+}
+.how-card:hover::before { transform: scaleX(1); }
+.how-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,114,255,0.13); }
+.how-num {
+  position: absolute; top: 16px; right: 20px;
+  font-size: 52px; font-weight: 900; color: rgba(0,114,255,0.07);
+  line-height: 1; pointer-events: none;
+}
+.how-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, #e8f0fe, #c9ddf7);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; color: #0072ff; margin: 0 auto 18px;
+  transition: background 0.3s, transform 0.3s;
+}
+.how-card:hover .how-icon { background: linear-gradient(135deg, #0072ff, #00c6ff); color: white; transform: scale(1.08); }
+.how-card h4 { font-size: 16px; font-weight: 700; color: #0a1a3a; margin-bottom: 10px; }
+.how-card p { font-size: 13.5px; color: #7a8ba0; line-height: 1.65; margin: 0; }
+.how-connector { display: flex; align-items: center; padding-top: 56px; }
+.how-connector i { font-size: 22px; color: #b8d0f0; }
+
+/* ================================================================
+   INFO STRIP
+================================================================ */
+.info-strip {
+  background: linear-gradient(135deg, #041a3f 0%, #062d6b 60%, #083580 100%);
+  padding: 60px 0; margin: 0;
+}
+.info-strip-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 48px; flex-wrap: wrap;
+}
+.info-strip-text { flex: 1; min-width: 280px; }
+.info-strip-text h2 { font-size: 30px; font-weight: 700; color: #ffffff; margin-bottom: 14px; }
+.info-strip-text h2 em { font-style: normal; color: #f9c74f; }
+.info-strip-text p { font-size: 14.5px; color: rgba(210,230,250,0.8); line-height: 1.75; margin-bottom: 20px; }
+.info-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.info-pill {
+  font-size: 11.5px; font-weight: 600; color: #7ec8f7;
+  background: rgba(0,114,255,0.15); border: 1px solid rgba(0,198,255,0.3);
+  padding: 5px 14px; border-radius: 20px; letter-spacing: 0.3px;
+}
+.info-strip-cta { text-align: center; flex-shrink: 0; }
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, #0072ff, #00c6ff); color: white;
+  font-size: 14px; font-weight: 700; padding: 14px 32px;
+  border-radius: 30px; text-decoration: none; letter-spacing: 0.5px;
+  box-shadow: 0 8px 28px rgba(0,114,255,0.4);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.cta-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 38px rgba(0,114,255,0.55); color: white; text-decoration: none; }
+.cta-note { display: block; font-size: 11.5px; color: rgba(255,255,255,0.4); margin-top: 10px; font-style: italic; }
+
+/* ================================================================
+   FILTER BAR
+================================================================ */
+.products-section { padding: 80px 0 90px; }
+.filter-bar {
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: 10px; margin-bottom: 48px;
+}
+.filter-btn {
+  font-size: 12px; font-weight: 700; padding: 8px 22px;
+  border-radius: 30px; border: 1.5px solid #d0e2ff;
+  background: transparent; color: #5a7aa0; cursor: pointer;
+  transition: all 0.25s; letter-spacing: 0.5px;
+}
+.filter-btn:hover { background: #eef3ff; border-color: #0072ff; color: #0072ff; }
+.filter-btn.active { background: #0072ff; border-color: #0072ff; color: white; }
+.filter-btn.active:hover { background: #0056cc; }
+
+/* ================================================================
+   PRODUCT CARDS GRID
+================================================================ */
+.products-grid {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 30px; max-width: 1100px; margin: 0 auto;
+}
+.product-card {
+  width: 320px; background: rgba(255,255,255,0.85); border-radius: 20px;
+  overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  border: 1px solid #edf1f7; display: flex; flex-direction: column;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.product-card:hover { transform: translateY(-10px); box-shadow: 0 24px 60px rgba(0,114,255,0.14); }
+.product-card.hidden { display: none; }
+
+.card-image {
+  position: relative; height: 200px; overflow: hidden;
+  background: linear-gradient(135deg, #e8f0fe, #c9ddf7);
+  display: flex; align-items: center; justify-content: center;
+}
+.card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.product-card:hover .card-image img { transform: scale(1.06); }
+.card-badge {
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  font-size: 10.5px; font-weight: 700; padding: 4px 12px;
+  border-radius: 20px; letter-spacing: 0.5px;
+  background: rgba(0,114,255,0.92); color: white;
+}
+.card-badge.badge-anaerobic { background: rgba(6,50,100,0.92); }
+.card-badge.badge-sanitation { background: rgba(0,150,100,0.9); }
+.card-badge.badge-coming { background: rgba(160,170,190,0.85); }
+
+.card-body { padding: 22px 24px 16px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.card-pack { font-size: 11.5px; color: #9aabb8; margin: 0; display: flex; align-items: center; gap: 6px; }
+.card-pack i { color: #0072ff; }
+.card-name { font-size: 17px; font-weight: 700; color: #0a1a3a; margin: 0; }
+.card-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.card-features li {
+  font-size: 13px; color: #5a6f85; line-height: 1.5;
+  padding-left: 18px; position: relative;
+}
+.card-features li::before {
+  content: ''; position: absolute; left: 0; top: 7px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+}
+.card-application {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: #7a8ba0;
+  background: #f3f7fb; padding: 8px 14px; border-radius: 10px;
+}
+.card-application i { color: #0072ff; font-size: 14px; }
+
+.card-footer-area {
+  padding: 14px 24px 22px;
+  display: flex; gap: 10px; border-top: 1px solid #edf1f7; margin-top: auto;
+}
+.card-btn {
+  flex: 1; text-align: center; padding: 9px 12px; border-radius: 20px;
+  font-size: 12.5px; font-weight: 700; text-decoration: none;
+  transition: all 0.25s; letter-spacing: 0.4px;
+}
+.btn-primary-card {
+  background: linear-gradient(135deg, #0072ff, #00c6ff); color: white;
+  box-shadow: 0 4px 14px rgba(0,114,255,0.25);
+}
+.btn-primary-card:hover { background: linear-gradient(135deg, #0056cc, #0072ff); color: white; text-decoration: none; transform: translateY(-1px); }
+.btn-secondary-card {
+  background: #eef3ff; color: #0072ff; border: 1.5px solid #d0e2ff;
+}
+.btn-secondary-card:hover { background: #0072ff; color: white; border-color: #0072ff; text-decoration: none; }
+
+/* coming soon card */
+.product-card.card-soon { border-style: dashed; background: #f9fbff; }
+.card-soon .card-image { background: linear-gradient(135deg,#e8f4ff,#dce8f5); flex-direction:column; gap:10px; }
+.card-soon .card-image i { font-size:42px; color:#b0c4de; }
+.card-soon .card-image span { font-size:12px; color:#9aadc7; font-weight:600; letter-spacing:1px; }
+.card-soon .card-name { color:#9aadc7; }
+.card-soon p { font-size:13px; color:#b0c4de; line-height:1.65; }
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+@media(max-width:768px){
+  .product-banner { height: 380px; }
+  .banner-content h1 { font-size: 36px; }
+  .banner-stats { gap: 24px; }
+  .banner-stat strong { font-size: 20px; }
+  .how-grid { gap: 20px; }
+  .how-card { width: 260px; }
+  .info-strip-inner { flex-direction: column; text-align: center; }
+  .info-pills { justify-content: center; }
+  .products-grid { gap: 20px; }
+  .product-card { width: 290px; }
+}
+@media(max-width:500px){
+  .product-banner { height: 320px; }
+  .banner-content h1 { font-size: 28px; }
+  .banner-stats { flex-wrap: wrap; gap: 16px; }
+  .how-card { width: 100%; max-width: 320px; }
+  .product-card { width: 100%; max-width: 320px; }
+}
+</style>
+</head>
+<body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
+
+<div id="tsparticles"></div>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+  fullScreen: { enable: true, zIndex: -10 },
+  background: { color: { value: "transparent" } },
+  particles: {
+    number: { value: 45, density: { enable: true, area: 1200 } },
+    color: { value: ["#0072ff", "#00c6ff", "#f9c74f", "#ffe066", "#ffd700"] },
+    shape: { type: "circle" },
+    size: { value: { min: 3, max: 8 } },
+    move: { enable: true, speed: { min: 0.6, max: 2 }, direction: "none", random: true, straight: false, outModes: { default: "out" } },
+    opacity: { value: { min: 0.2, max: 0.7 }, animation: { enable: true, speed: 0.8, minimumValue: 0.1, sync: false } },
+    links: { enable: true, distance: 140, color: "#0072ff", opacity: 0.12, width: 1 }
+  },
+  interactivity: {
+    events: { onHover: { enable: true, mode: "bubble" }, onClick: { enable: true, mode: "push" } },
+    modes: { bubble: { distance: 150, size: 18, duration: 0.4, color: "#f9c74f", opacity: 0.9 }, push: { quantity: 4 } }
+  },
+  detectRetina: true
+});
+</script>
+
+<!-- ── NAVBAR ── -->
+<div class="navbar navbar-fixed-top custom-navbar" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon icon-bar"></span><span class="icon icon-bar"></span><span class="icon icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+      <div>
+        <img src="images/logo1.png" alt="Reinerde logo" class="logoname" style="margin-left:-200px;">
+        <div class="tagline-container"><div class="tagline-text">Together for Tomorrow</div></div>
+      </div>
+      <ul class="nav navbar-nav navbar-right" style="margin-top:-50px;">
+        <li class="nav-item"><a href="index.html" class="smoothScroll">Home<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="about.html" class="smoothScroll">About us<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="product.html" class="smoothScroll">Products<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="project.html" class="smoothScroll">Projects<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="team.html" class="smoothScroll">Team<span class="text-white">   |</span></a></li>
+        <li class="nav-item"><a href="map.html" class="smoothScroll">Contact<span class="text-white">   |</span></a></li>
+        <li class="nav-item ms-3"><a href="#" class="nav-link p-0"><i class="bi bi-headset"></i></a></li>
+        <li class="nav-item"><button class="admin-btn" onclick="openLogin()">Admin Login</button></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+function openLogin()  { document.getElementById("adminModal").style.display = "block"; }
+function closeLogin() { document.getElementById("adminModal").style.display = "none"; }
+function loginAdmin() {
+  const user = document.getElementById("adminUser").value;
+  const pass = document.getElementById("adminPass").value;
+  if (user === "admin" && pass === "1234") { alert("Login Successful!"); window.location.href = "admin-dashboard.php"; }
+  else { alert("Invalid Credentials"); }
+}
+window.addEventListener("scroll", function () {
+  const navbar = document.querySelector(".custom-navbar");
+  window.scrollY > 50 ? navbar.classList.add("scrolled") : navbar.classList.remove("scrolled");
+});
+</script>
+
+<!-- ================================================================
+     BANNER
+================================================================ -->
+<section class="product-banner">
+  <div class="banner-glow glow-1"></div>
+  <div class="banner-glow glow-2"></div>
+  <div class="banner-glow glow-3"></div>
+  <div class="banner-particles" id="bannerParticles"></div>
+  <div class="banner-content">
+    <div class="banner-badge reveal-down delay-1"><i class="bx bx-leaf"></i> Reinerde Bioculture Range</div>
+    <h1 class="reveal-zoom delay-2">Products Built for<br><span>Environmental Impact</span></h1>
+    <div class="banner-divider reveal-zoom delay-3"></div>
+    <p class="reveal-up delay-3">High-performance microbial formulations engineered for wastewater treatment, STP &amp; ETP enhancement, septic systems, and industrial effluent management. Every product — designed to restore, protect, and sustain.</p>
+    <div class="banner-stats">
+      <div class="banner-stat reveal-up delay-3"><strong>5+</strong><span>Product Lines</span></div>
+      <div class="banner-stat reveal-up delay-4"><strong>100%</strong><span>Microbial-Based</span></div>
+      <div class="banner-stat reveal-up delay-5"><strong>50+</strong><span>Applications</span></div>
+    </div>
+  </div>
+</section>
+
+<script>
+const container = document.getElementById('bannerParticles');
+const dotColors = ['rgba(0,114,255,0.55)','rgba(249,199,79,0.65)','rgba(0,198,255,0.50)','rgba(255,224,102,0.60)','rgba(0,86,204,0.45)','rgba(255,215,0,0.55)'];
+for(let i = 0; i < 24; i++){
+  const dot = document.createElement('div');
+  dot.className = 'banner-dot';
+  const size = Math.random() * 7 + 3;
+  dot.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;bottom:-20px;background:${dotColors[i%dotColors.length]};animation-duration:${Math.random()*6+5}s;animation-delay:${Math.random()*8}s;opacity:${Math.random()*0.4+0.1};`;
+  container.appendChild(dot);
+}
+</script>
+
+<!-- ================================================================
+     HOW IT WORKS
+================================================================ -->
+<section class="how-section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <span class="eyebrow">Our Approach</span>
+      <h2>How Reinerde Bioculture Works</h2>
+      <p>Each product is a precision-engineered blend of beneficial microbes that restore balance in your treatment systems — naturally.</p>
+      <div class="title-bar"></div>
+    </div>
+    <div class="how-grid">
+      <div class="how-card reveal-left delay-1">
+        <div class="how-num">1</div>
+        <div class="how-icon"><i class="fas fa-flask"></i></div>
+        <h4>Select the Right Product</h4>
+        <p>Choose from our range based on your specific system — aerobic, anaerobic, composting, or septic. Each formulation is purpose-built.</p>
+      </div>
+      <div class="how-card reveal-up delay-2">
+        <div class="how-num">2</div>
+        <div class="how-icon"><i class="fas fa-tint"></i></div>
+        <h4>Dose &amp; Inoculate</h4>
+        <p>Add the bioculture directly to your treatment tank, digestor, or reactor. Our microbes activate rapidly in the existing environment.</p>
+      </div>
+      <div class="how-card reveal-right delay-3">
+        <div class="how-num">3</div>
+        <div class="how-icon"><i class="fas fa-leaf"></i></div>
+        <h4>Restore &amp; Sustain</h4>
+        <p>MLSS builds up, COD/BOD reduces, odour disappears. Your system runs efficiently — with results visible within days of dosing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     INFO STRIP
+================================================================ -->
+<div class="info-strip">
+  <div class="info-strip-inner">
+    <div class="info-strip-text reveal-left">
+      <h2>Not for sale — built to <em>solve</em></h2>
+      <p>Reinerde products are not off-the-shelf commodities. Every formulation is developed with field experience across textile, pharmaceutical, food processing, and municipal wastewater sectors. Reach out to understand how each product can address your specific challenge.</p>
+      <div class="info-pills">
+        <span class="info-pill">✦ Aerobic Systems</span>
+        <span class="info-pill">✦ Anaerobic Digestors</span>
+        <span class="info-pill">✦ Bio Toilets</span>
+        <span class="info-pill">✦ STP / ETP</span>
+      </div>
+    </div>
+    <div class="info-strip-cta reveal-right delay-2">
+      <a href="map.html" class="cta-btn"><i class="fas fa-envelope"></i> Enquire Now</a>
+      <span class="cta-note">No obligation — just a conversation</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     PRODUCTS GRID
+================================================================ -->
+<section class="products-section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <span class="eyebrow">Our Products</span>
+      <h2>Complete Product Range</h2>
+      <p>Explore our full lineup of bioculture formulations — each engineered for a distinct wastewater treatment challenge.</p>
+      <div class="title-bar"></div>
+    </div>
+
+    <div class="filter-bar reveal-zoom">
+      <button class="filter-btn active" onclick="filterCards(this,'all')">All Products</button>
+      <button class="filter-btn" onclick="filterCards(this,'aerobic')">Aerobic</button>
+      <button class="filter-btn" onclick="filterCards(this,'anaerobic')">Anaerobic</button>
+      <button class="filter-btn" onclick="filterCards(this,'sanitation')">Sanitation</button>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- CARD 1 — Aerobic -->
+      <div class="product-card reveal-up delay-1" data-cat="aerobic">
+        <div class="card-image">
+          <span class="card-badge">Aerobic</span>
+          <img src="images/productP1.png" alt="Reinerde Aerobic">
+        </div>
+        <div class="card-body">
+          <p class="card-pack"><i class="fas fa-box-open"></i> Pack Size — 1 Kg</p>
+          <h3 class="card-name">Reinerde Aerobic</h3>
+          <ul class="card-features">
+            <li>Designed for industrial effluent treatment</li>
+            <li>Reduces system commissioning time significantly</li>
+            <li>Improves MLSS growth rate in aeration tanks</li>
+            <li>Stabilises shock load events</li>
+            <li>Suppresses foul odour at source</li>
+          </ul>
+          <div class="card-application"><i class="fas fa-industry"></i><span>Aeration Tank · MBBR · SBR Tanks</span></div>
+        </div>
+        <div class="card-footer-area">
+          <a href="map.html" class="card-btn btn-primary-card">Enquire</a>
+          <a href="#" class="card-btn btn-secondary-card"><i class="fas fa-file-pdf"></i> Brochure</a>
+        </div>
+      </div>
+
+      <!-- CARD 2 — Anaerobic -->
+      <div class="product-card reveal-up delay-2" data-cat="anaerobic">
+        <div class="card-image">
+          <span class="card-badge badge-anaerobic">Anaerobic</span>
+          <img src="images/productL2.jpeg" alt="Reinerde Anaerobic">
+        </div>
+        <div class="card-body">
+          <p class="card-pack"><i class="fas fa-box-open"></i> Pack Size — 1 Kg</p>
+          <h3 class="card-name">Reinerde Anaerobic</h3>
+          <ul class="card-features">
+            <li>Improves biogas generation efficiency</li>
+            <li>Enhances methanogens activity in digestors</li>
+            <li>Degrades complex recalcitrant compounds</li>
+            <li>Reduces sludge volume output</li>
+          </ul>
+          <div class="card-application"><i class="fas fa-industry"></i><span>UASB · CSTR · Biogas Digestors</span></div>
+        </div>
+        <div class="card-footer-area">
+          <a href="map.html" class="card-btn btn-primary-card">Enquire</a>
+          <a href="#" class="card-btn btn-secondary-card"><i class="fas fa-file-pdf"></i> Brochure</a>
+        </div>
+      </div>
+
+      <!-- CARD 3 — Bio Toilet -->
+      <div class="product-card reveal-up delay-3" data-cat="sanitation">
+        <div class="card-image">
+          <span class="card-badge badge-sanitation">Sanitation</span>
+          <img src="images/productP3.jpeg" alt="Reinerde Bio Toilet">
+        </div>
+        <div class="card-body">
+          <p class="card-pack"><i class="fas fa-box-open"></i> Pack Size — 1 Kg</p>
+          <h3 class="card-name">Reinerde Bio Toilet</h3>
+          <ul class="card-features">
+            <li>Digests organic waste to biogas (methane)</li>
+            <li>Eliminates odour from sanitation systems</li>
+            <li>Effective across a wide temperature range</li>
+            <li>No chemicals — fully biological action</li>
+          </ul>
+          <div class="card-application"><i class="fas fa-toilet"></i><span>Bio Toilets · Septic Tanks</span></div>
+        </div>
+        <div class="card-footer-area">
+          <a href="map.html" class="card-btn btn-primary-card">Enquire</a>
+          <a href="#" class="card-btn btn-secondary-card"><i class="fas fa-file-pdf"></i> Brochure</a>
+        </div>
+      </div>
+
+      <!-- CARD 4 — Bio Toilet Liquid -->
+      <div class="product-card reveal-up delay-2" data-cat="sanitation">
+        <div class="card-image">
+          <span class="card-badge badge-sanitation">Sanitation</span>
+          <img src="images/productL4.png" alt="Reinerde Bio Toilet Liquid">
+        </div>
+        <div class="card-body">
+          <p class="card-pack"><i class="fas fa-box-open"></i> Pack Size — 1 Kg</p>
+          <h3 class="card-name">Reinerde Bio Toilet (Liquid)</h3>
+          <ul class="card-features">
+            <li>Liquid formulation for faster activation</li>
+            <li>Digests waste into safe by-products</li>
+            <li>Removes odour instantly on dosing</li>
+            <li>Works at low and high temperatures</li>
+          </ul>
+          <div class="card-application"><i class="fas fa-toilet"></i><span>Bio Toilets · Septic Tanks</span></div>
+        </div>
+        <div class="card-footer-area">
+          <a href="map.html" class="card-btn btn-primary-card">Enquire</a>
+          <a href="#" class="card-btn btn-secondary-card"><i class="fas fa-file-pdf"></i> Brochure</a>
+        </div>
+      </div>
+
+      <!-- CARD 5 — STP Enhancer -->
+      <div class="product-card reveal-up delay-3" data-cat="aerobic">
+        <div class="card-image">
+          <span class="card-badge">Aerobic</span>
+          <img src="images/productP5.png" alt="Reinerde STP Enhancer">
+        </div>
+        <div class="card-body">
+          <p class="card-pack"><i class="fas fa-box-open"></i> Pack Size — 1 Kg</p>
+          <h3 class="card-name">Reinerde STP Enhancer</h3>
+          <ul class="card-features">
+            <li>Boosts performance of existing STP plants</li>
+            <li>Reduces COD and BOD rapidly</li>
+            <li>Improves effluent quality to discharge norms</li>
+            <li>Safe, non-pathogenic microbial consortium</li>
+          </ul>
+          <div class="card-application"><i class="fas fa-water"></i><span>STP · ETP · Municipal Plants</span></div>
+        </div>
+        <div class="card-footer-area">
+          <a href="map.html" class="card-btn btn-primary-card">Enquire</a>
+          <a href="#" class="card-btn btn-secondary-card"><i class="fas fa-file-pdf"></i> Brochure</a>
+        </div>
+      </div>
+
+      <!-- CARD 6 — Coming Soon -->
+      <div class="product-card card-soon reveal-up delay-4" data-cat="all">
+        <div class="card-image">
+          <i class="fas fa-flask"></i>
+          <span>COMING SOON</span>
+        </div>
+        <div class="card-body" style="align-items:center; text-align:center; justify-content:center;">
+          <h3 class="card-name">New Formulation</h3>
+          <p>We are continuously developing new bioculture solutions. Get in touch to learn what's in our pipeline.</p>
+        </div>
+        <div class="card-footer-area">
+          <a href="map.html" class="card-btn btn-secondary-card" style="flex:1; text-align:center;">Notify Me</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-col reveal-left delay-1">
+      <h3>Reinerde</h3>
+      <p>Committed to sustainable environmental solutions, wastewater treatment, and building a greener future for tomorrow.</p>
+    </div>
+    <div class="footer-col reveal-up delay-2">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="map.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col reveal-up delay-3">
+      <h3>Contact Info</h3>
+      <p>Email: info@reinerde.com</p>
+      <p>Phone: +91 98765 43210</p>
+      <p>Location: Chennai, India</p>
+    </div>
+    <div class="footer-col reveal-right delay-1">
+      <h3>Follow Us</h3>
+      <div style="display:flex; gap:12px; margin-top:10px; flex-wrap:wrap;">
+        <a href="#" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:transparent;border:2px solid #111;color:#111;font-size:19px;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"><i class='bx bxl-instagram'></i></a>
+        <a href="#" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:transparent;border:2px solid #111;color:#111;font-size:19px;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"><i class='bx bxl-linkedin'></i></a>
+        <a href="#" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:transparent;border:2px solid #111;color:#111;font-size:19px;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"><i class='bx bxl-twitter'></i></a>
+        <a href="#" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:transparent;border:2px solid #111;color:#111;font-size:19px;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"><i class='bx bxl-whatsapp'></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Reinerde | All Rights Reserved</div>
+</footer>
+
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- Chatbot -->
+<div class="chatbot-toggle" onclick="toggleChat()">
+  <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Bot">
+</div>
+<div class="chatbot-box" id="chatbot">
+  <div class="chat-header">Reinerde Assistant <span onclick="toggleChat()">✖</span></div>
+  <div class="chat-body" id="chatBody">
+    <div class="bot-message">Hello 👋 How can I help you?</div>
+    <div class="options">
+      <button onclick="showAnswer('products')">Our Products</button>
+      <button onclick="showAnswer('wastewater')">Wastewater Treatment</button>
+      <button onclick="showAnswer('contact')">Contact Details</button>
+      <button onclick="showAnswer('about')">About Company</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admin Modal -->
+<div id="adminModal" class="admin-modal">
+  <div class="admin-content">
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+    <h3>Admin Login</h3>
+    <input type="text" id="adminUser" placeholder="Username">
+    <input type="password" id="adminPass" placeholder="Password">
+    <button onclick="loginAdmin()">Login</button>
+  </div>
+</div>
+
+<!-- Preloader -->
+<div id="preloader">
+  <img src="images/logo.png" alt="Logo" class="preloader-logo">
+</div>
+
+<script>
+/* ── filter cards ── */
+function filterCards(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    const cardCat = card.getAttribute('data-cat');
+    if (cat === 'all' || cardCat === cat || cardCat === 'all') {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+
+/* ── scroll reveal ── */
+(function () {
+  const selectors = '.reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-zoom, .reveal-flip, .reveal';
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(selectors).forEach(el => observer.observe(el));
+})();
+
+/* ── go-top ── */
+window.addEventListener("scroll", function () {
+  const btn = document.querySelector(".go-top");
+  window.scrollY > 300 ? btn.classList.add("active") : btn.classList.remove("active");
+});
+
+/* ── chatbot ── */
+function toggleChat() {
+  const chatbot = document.getElementById("chatbot");
+  chatbot.style.display = chatbot.style.display === "block" ? "none" : "block";
+}
+function showAnswer(type) {
+  const chatBody = document.getElementById("chatBody");
+  const answers = {
+    products: "We offer Reinerde Aerobic, Anaerobic, Bio Toilet (powder & liquid), and STP Enhancer formulations.",
+    wastewater: "Our bioculture products help industries reduce COD/BOD, improve MLSS, and meet discharge norms efficiently.",
+    contact: "Contact us at info@reinerde.com or call +91-XXXXXXXXXX.",
+    about: "Reinerde Technology Pvt Ltd focuses on sustainable environmental solutions through microbial biotechnology."
+  };
+  const reply = document.createElement("div");
+  reply.classList.add("bot-message");
+  reply.innerText = answers[type] || "";
+  chatBody.appendChild(reply);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+/* ── preloader ── */
+window.addEventListener("load", function () {
+  setTimeout(() => {
+    document.getElementById("preloader").style.opacity = "0";
+    setTimeout(() => { document.getElementById("preloader").style.display = "none"; }, 500);
+  }, 2400);
+});
+</script>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>
